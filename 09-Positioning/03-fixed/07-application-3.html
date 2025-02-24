@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>03-Application: Three Column Layouts - Center Self-Adapt</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 3000px;
+        }
+
+        .main {
+            /* Do not set width */
+            background-color: pink;
+            margin-left: 300px;
+            margin-right: 300px;
+            min-height: 800px;
+        }
+
+        .left {
+            width: 280px;
+            background-color: lightblue;
+            position: fixed;
+            /* Height: stretch from top to bottom. */
+            top: 0;
+            bottom: 0;
+            left: 0;
+        }
+
+        .right {
+            width: 280px;
+            background-color: lightblue;
+            position: fixed;
+            /* Height: stretch from top to bottom. */
+            top:0;
+            bottom: 0;
+            right: 0;
+        }
+    </style>
+  </head>
+  <body>
+    <main class="main"></main>
+    <aside class="left"></aside>
+    <aside class="right"></aside>
+  </body>
+</html>

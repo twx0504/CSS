@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01-Absolute</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            height: 100px;
+            border: 2px solid;
+            position: relative;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+            float: left;
+            border: 1px solid;
+        }
+
+        .box2 {
+            background-color: khaki;
+            position: absolute;
+            top: 50px;
+            left: 150px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Get out of document flow -->
+     <!-- Its stacking order has been raised, overlappign other element. -->
+    <div class="container">
+        <div class="box box1">1</div>
+        <div class="box box2">2</div>
+        <div class="box box3">3</div>
+    </div>
+</body>
+</html>

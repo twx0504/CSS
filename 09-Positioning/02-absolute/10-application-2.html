@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>02- Application : Overlay</title>
+    <style>
+      .box {
+        border: 2px solid red;
+      }
+
+      .box a {
+        display: block;
+        position: relative;
+      }
+
+      /* Make sure .box and a is the same size */
+      .box,
+      .box a {
+        width: 250px;
+        height: 250px;
+      }
+
+      /* get ::after when the mouse pointer hovers over box. */
+      /* This adds ::after pseudo element inside a element */
+      .box a::after {
+        content: "";
+        /* Initially, this pseudo element is not there. The overlay is absent. */
+        display: none;
+        position: absolute;
+        /* Without explicitly state the size. */
+        /* Control Height */
+        top: 0;
+        bottom: 0;
+        /* Control Width */
+        left: 0;
+        right: 0;
+        /* Shorthand */
+        /* background: bg-color bg-image position/bg-size bg-repeat bg-origin bg-clip bg-attachment initial|inherit; */
+        background: rgba(0, 0, 0, 0.5) url("./play.png") center/100px no-repeat;
+        /* background-color: rgba(0, 0, 0, 0.5);
+        background-image: url("./play.png");
+        background-size: 100px;
+        background-repeat: no-repeat;
+        background-position: center; */
+      }
+
+      .box a:hover::after {
+        /* Show overlay */
+        display: block;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- To ensure the link is working:
+    1. everything wrapped inside a element.
+    2. a element must be the same size as .box.
+    3. add pseudo element inside a element.
+    4. a element must be displayed block.
+    -->
+    <div class="box">
+      <a href="https://www.google.co.uk/"
+        ><img src="./dog.webp" alt="A dog."
+      /></a>
+    </div>
+  </body>
+</html>

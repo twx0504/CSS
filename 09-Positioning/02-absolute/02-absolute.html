@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>02-Absolute - relative to the nearest ancestral positioned element.</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      .wrap {
+        padding: 50px;
+        border: 4px solid blue;
+        position: relative;
+      }
+
+      .container {
+        height: 100px;
+        border: 2px solid;
+        /* position: fixed; */
+      }
+
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: skyblue;
+        float: left;
+      }
+
+      .box2 {
+        width: 200px;
+        border: 2px solid;
+        background-color: khaki;
+        position: absolute;
+        left: 50px;
+        top: 50px;
+      }
+
+      .child {
+        width: 100px;
+        height: 100px;
+        background-color: green;
+        float: left;
+      }
+
+      .child-abs {
+        position: absolute;
+        background-color: red;
+        left: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="container">
+        <div class="box box1">1</div>
+        <div class="box box2">
+          <!-- Positioned absolute element inside a positioned absolute element. -->
+          <!-- It doesn't matters as long as it is postioned element other than static. -->
+          <!-- Some observation:  -->
+          <!-- If set child to float left. -->
+          <!-- this text 2 will be put behind. -->
+          <!-- If without float, it will be occupying a slot in front of the remaining child. -->
+          <!-- so the position absolute element will be placed following the text 2. -->
+          2
+          <div class="child child-abs">child</div>
+          <div class="child">child</div>
+        </div>
+        <div class="box box3">3</div>
+      </div>
+    </div>
+  </body>
+</html>

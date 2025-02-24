@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>08-Absolute</title>
+    <style>
+      .box {
+        width: 400px;
+        height: 200px;
+        background-color: skyblue;
+        position: relative;
+      }
+
+      .next,
+      .prev {
+        width: 50px;
+        height: 60px;
+        background-color: khaki;
+        position: absolute;
+        /* Common Problem: Writing left here and intend to overwrite it later with another class is not use here. */
+        /* Reason: Higher priority */
+        /* Setting right on another class is not working due to this. */
+        /* left: 0; */
+        top: 70px;
+      }
+
+      /* Write left and rigth on separate class. */
+      .next {
+        right: 10px;
+      }
+
+      .prev {
+        left: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div class="prev"><</div>
+      <div class="next">></div>
+    </div>
+  </body>
+</html>

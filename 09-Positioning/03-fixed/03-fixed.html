@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03-Fixed: Relative to Ancestor</title>
+    <style>
+        .box {
+            width: 300px;
+            height: 300px;
+            background-color: lightblue;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            /* margin-top: -150px;
+            margin-left: -150px; */
+            
+            /* Move to left and top by half the current element size. */
+            transform: translate(-50%, -50%);
+        }
+
+        .box .close {
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            border-radius: 50%;
+            /* Default: positioned relative to viewport. */
+            /* What if we want it to be positioned to .box? */
+            /* Use transform on .box */
+            /* It will positioned relative to .box, instead of the viewport. */
+            
+            position: fixed;
+            top: -25px;
+            right: -25px;
+
+            /* What we actually use in real life. */
+            /* position: absolute;
+            right: -25px;
+            top: -25px; */
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="close"></div>
+    </div>
+</body>
+</html>

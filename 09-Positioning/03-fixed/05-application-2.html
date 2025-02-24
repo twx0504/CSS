@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>02-Application-2: Modal</title>
+    <style>
+      body,
+      button {
+        margin: 0;
+        padding: 0;
+      }
+      input {
+        width: 200px;
+        height: 40px;
+        margin-bottom: 20px;
+      }
+
+      button {
+        width: 207px;
+        height: 40px;
+        border: none;
+        cursor: pointer;
+      }
+
+      .form {
+        background-color: white;
+        width: 250px;
+        height: 200px;
+        padding: 20px;
+        position: fixed;
+        border: 1px solid;
+        left: 50%;
+        top: 50%;
+        margin-top: -100px;
+        margin-left: -100px;
+        display: none;
+      }
+
+      .wrapper {
+        position: absolute;
+        width: 207px;
+        top: 50%;
+        left: 50%;
+        margin-top: -75.2px;
+        margin-left: -103.5px;
+      }
+
+      .form::before {
+        content: "X";
+        background-color: #ddd;
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        text-align: center;
+        top: 0;
+        right: 0;
+      }
+
+      .mask {
+        position: fixed;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        display: none;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+      
+      .login:hover ~ .mask {
+        display: block;
+      }
+      .login:hover ~ .form {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <a class="login" href="javascript:;">Login</a>
+    <a class="register" href="javascript:;">Register</a>
+    <div class="mask"></div>
+    <div class="form">
+      <div class="wrapper">
+        <input type="text" placeholder="Username" />
+        <input type="text" placeholder="Password" />
+        <button>Login</button>
+      </div>
+    </div>
+  </body>
+</html>

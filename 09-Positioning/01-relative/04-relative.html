@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>04-Relative - nav</title>
+    <style>
+      body,
+      ul,
+      li {
+        margin: 0;
+        padding: 0;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      a {
+        text-decoration: none;
+        color: #fff;
+      }
+
+      .nav {
+        background-color: skyblue;
+        height: 80px;
+        margin-top: 50px;
+      }
+
+      .nav-list {
+        width: 800px;
+        height: inherit;
+        /* background-color: khaki; */
+        margin: 0 auto;
+      }
+
+      ul.nav-list li {
+        float: left;
+        height: inherit;
+      }
+
+      ul.nav-list li a {
+        display: block;
+        height: inherit;
+        line-height: 80px;
+        /* border: 1px solid red; */
+        font-size: 18px;
+        padding: 0px 20px;
+      }
+
+      ul.nav-list li a:hover {
+        background-color: rgb(43, 158, 203);
+        /* increase height of a when hover. */
+        height: 86px;
+        position: relative;
+        top: -3px;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="nav">
+      <ul class="nav-list">
+        <li><a href="">Home</a></li>
+        <li><a href="">Live</a></li>
+        <li><a href="">Frontend</a></li>
+        <li><a href="">Backend</a></li>
+        <li><a href="">About Us</a></li>
+      </ul>
+    </div>
+  </body>
+</html>

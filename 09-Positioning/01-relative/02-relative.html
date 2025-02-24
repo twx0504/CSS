@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>02-Relative</title>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: skyblue;
+        border: 1px solid red;
+        float: left;
+      }
+
+      .box2 {
+        background-color: lightpink;
+        position: relative;
+        left: 20px;
+        top: 10px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+    <!-- Note: using left and top on position relative element, the slot will be kept. You can think the element as shadow of a invicible element from the slot -->
+    <!-- box2 stack order has been raised too. -->
+    <div class="box box2"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+  </body>
+</html>

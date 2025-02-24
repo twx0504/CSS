@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>09-Application-1 Centering</title>
+    <style>
+      .box {
+        width: 600px;
+        height: 400px;
+        background-color: skyblue;
+        position: relative;
+      }
+
+      .item {
+        width: 100px;
+        height: 100px;
+        background-color: khaki;
+        position: absolute;
+
+        /* Centering */
+        /* Note: It is the top left corner aligned in the center at this moment. */
+        /* We need to adjust the box again by margin. */
+
+        /* Horizontal Centering */
+        left: 50%;
+        /* Move half of its width to the left by 50px */
+        margin-left: -50px;
+
+        /* Vertical Centering */
+        top: 50%;
+        /* Move half of its height to the top by 50px */
+        margin-top: -50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div class="item"></div>
+    </div>
+  </body>
+</html>

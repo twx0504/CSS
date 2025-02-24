@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01-Fixed</title>
+    <style>
+        body {
+            /* Height of body is 3000px, it has scrollbar. */
+            height: 3000px;
+        }
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: fixed;
+            /* 100px from the left edge of the viewport */
+            left: 100px;
+            
+            /* Note: .box will always stay 100px from the top edge of the viewport */
+            /* Regardless of how far you scroll down the viewport. */
+            /* 200px from the top edge of the viewport */
+            top: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>05-Relative - progress bar</title>
+    <style>
+      body,
+      ul,
+      li {
+        margin: 0;
+        padding: 0;
+      }
+
+      .order-progress {
+        /* Note: Without doing anything to the order-progress, it takes the whole width of the viewport. */
+        /* Try display: inline-block / flex to let the order-progress takes up the width based on its content. */
+        /* display: flex; */
+        display: inline-block;
+      }
+
+      ul {
+        margin: 10px;
+        list-style: none;
+      }
+
+      ul li {
+        float: right;
+      }
+
+      ul li:nth-child(2n + 1) {
+        width: 50px;
+        height: 50px;
+        background-color: #ddd;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 50px;
+        font-size: 18px;
+        color: #fff;
+      }
+
+      ul li:nth-child(2n) {
+        width: 150px;
+        border-top: 2px dashed #ddd;
+        /* Use to adjust the dashed line (border-top) to the middle. */
+        position: relative;
+        top: 25px;
+      }
+
+      /* Currently hovered element */
+      /* Might be adding current class via js. */
+      ul li.circle.current {
+        background-color: skyblue;
+      }
+
+      /* ~ : Subsequent sibling combinator */
+      /* Select the subsequent sibling. */
+      ul li.circle.current ~ :nth-child(2n + 1),
+      ul li.circle.current ~ :nth-child(2n) {
+        background-color: skyblue;
+      }
+
+
+      /* Hover */
+      /* ul li.circle:hover {
+        background-color: skyblue;
+        cursor: pointer;
+      } */
+
+      /* ul li.circle:hover ~ :nth-child(2n + 1),
+      ul li.circle:hover ~ :nth-child(2n) {
+        background-color: skyblue;
+      } */
+
+      .clear-fix::after {
+        content: "";
+        display: block;
+        clear: both;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="order-progress">
+      <ul class="clear-fix">
+        <!-- Our selector cannot select previous sibling, so we order the element in reverse. -->
+        <!-- odd number (2n + 1): circle -->
+        <!-- even number (2n): dashed line  -->
+        <li class="circle">5</li>
+        <li></li>
+        <li class="circle">4</li>
+        <li></li>
+        <li class="circle current">3</li>
+        <li></li>
+        <li class="circle">2</li>
+        <li></li>
+        <li class="circle">1</li>
+      </ul>
+    </div>
+  </body>
+</html>

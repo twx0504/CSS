@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06-Absolute</title>
+    <style>
+        .box {
+            width: 500px;
+            height: 500px;
+            background-color: skyblue;
+            position: relative;
+        }
+
+        .box .item {
+            /* Comment out size to see the effect of setting top bottom left right. */
+            /* width: 100px;
+            height: 100px; */
+            background-color: red;
+            position: absolute;
+            /* left: 0px;
+            right: 300px;
+            top: 0px;
+            bottom: 300px; */
+            left: 50px;
+            right: 50px;
+            top: 50px;
+            bottom: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <!-- You can have many content inside box -->
+         <!-- Absolute positioned element will not affect them. -->
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem officia dolorem illo qui, atque eum commodi maxime assumenda libero doloribus ipsum enim consectetur modi exercitationem architecto dicta, dignissimos tempore inventore magni incidunt et dolore soluta aliquid nobis? Cupiditate quibusdam officiis, corporis ad iure voluptatum rerum voluptas quae dolores quas fugiat!
+        <div class="item"></div>
+    </div>
+</body>
+</html>
