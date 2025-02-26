@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>02-Sticky: Sticky-Positioned Element as Body's Child</title>
+    <style>
+      body {
+        margin: 0;
+      }
+
+      .top {
+        height: 100px;
+        background-color: #000;
+      }
+
+      .nav {
+        height: 100px;
+        background-color: rgb(132, 202, 230, 0.5);
+        position: sticky;
+        /* Without top, left, bottom, or right */
+        /* There's no effect. */
+        top: 50px;
+      }
+
+      .main {
+        height: 1500px;
+        background-image: linear-gradient(pink, yellow);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="top"></div>
+    <div class="nav"></div>
+    <div class="main"></div>
+  </body>
+</html>

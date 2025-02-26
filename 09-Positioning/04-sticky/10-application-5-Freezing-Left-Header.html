@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>05-Application: Freezing Left Headers - Sticky</title>
+    <style>
+      body {
+        margin: 0;
+      }
+
+      /* This container is used to fix the new left and right borders. */
+      .container {
+        margin: 10px;
+        width: fit-content;
+        position: relative;
+      }
+
+      /* Recreate border left and border right and fix them at both sides. */
+      .container::before,
+      .container::after {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 1px;
+        height: 85px;
+        border-left: 1px solid #333;
+        z-index: 100;
+      }
+
+      .container::before {
+        top: 0;
+        left: 0;
+      }
+
+      .container::after {
+        top: 0;
+        right: 0;
+      }
+
+      .box {
+        width: 400px;
+        /* Make the box having a x-scrollbar. */
+        /* When the content width (table) > box width.*/
+        overflow: auto;
+      }
+
+      .box table {
+        border-collapse: collapse;
+        /* Table width > box width */
+        width: 800px;
+      }
+
+      .box table tr th,
+      .box table tr td {
+        border: 1px solid #333;
+        text-align: center;
+      }
+
+      .box table tr th {
+        width: 150px;
+        background-color: #ddd;
+        position: sticky;
+        left: 0;
+        /* Remove border left of all th */
+        border-left: none;
+      }
+
+      .box table tr td:last-child {
+        /* Remove border left of all last td */
+        border-right: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box">
+        <table>
+          <tbody>
+            <tr>
+              <th>Classification</th>
+              <td>Classic</td>
+              <td>Modern</td>
+              <td>DJ</td>
+              <td>Guzheng</td>
+            </tr>
+            <tr>
+              <th>Rank</th>
+              <td>1</td>
+              <td>2</td>
+              <td>3</td>
+              <td>4</td>
+            </tr>
+            <tr>
+              <th>Song</th>
+              <td>A</td>
+              <td>B</td>
+              <td>C</td>
+              <td>D</td>
+            </tr>
+            <tr>
+              <th>Artist</th>
+              <td>Ppl 1</td>
+              <td>Ppl 2</td>
+              <td>Ppl 3</td>
+              <td>Ppl 4</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

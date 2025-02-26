@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>01-Z-Index</title>
+    <style>
+      body {
+        margin: 0;
+      }
+      .box {
+        margin: 20px;
+        width: 200px;
+        height: 200px;
+        /* Allow you to see beneath box */
+        background-color: rgba(135, 206, 235, 0.7);
+        position: relative;
+      }
+
+      .item {
+        width: 100px;
+        height: 100px;
+        position: absolute;
+      }
+
+      /* z-index value is auto by default. */
+      /* Within the same stacking context, two positioned elements have the same z-index value. */
+      /* The latter element will cover the previous one. */
+      /* The higher the z-index value, the higher up the stack of the element. */
+      .item1 {
+        background-color: khaki;
+        top: 40px;
+        left: 40px;
+        /* Raise item1 z-index */
+        /* item1 will now cover the item2 */
+        z-index: 1;
+
+        /* Setting z-index to negative may seem to make item1 disappear. */
+        /* It is actually going beneath box. */
+        /* Comment out the following z-index to see what happens. */
+        /* z-index: -1; */
+      }
+
+      .item2 {
+        background-color: tomato;
+        /* If you want to make item2 on higher stack again, comment out the following z-index. */
+        /* z-index: 2; */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div class="item item1"></div>
+      <!-- Default: item2 covers item1. -->
+      <div class="item item2"></div>
+    </div>
+  </body>
+</html>

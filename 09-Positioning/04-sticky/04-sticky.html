@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>04-Sticky: The Direct Parent Other Than Body Has The Scrolling Behavior.</title>
+    <style>
+      body {
+        /* Allow scrollbar on body. */
+        height: 3000px;
+        margin: 0;
+      }
+
+      .main {
+        margin-top: 100px;
+        width: 500px;
+        height: 500px;
+        border: 1px solid red;
+        /* Allow scrollbar */
+        /* auto: allow scrollbar when the content exceeds in a certain direction. Otherwise, do not allow scroll bar. */
+        overflow: auto;
+      }
+
+      .main .h100 {
+        height: 100px;
+        background-color: khaki;
+      }
+
+      .main .head {
+        height: 100px;
+        background-color: skyblue;
+        position: sticky;
+        top: 0;
+      }
+
+      /* Let the main has scrollbar. */
+      .main .h700 {
+        /* This causes the element to overflow. */
+        height: 700px;
+        background-color: tomato;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Since main is the nearest scrolling parent, .head will be positioned relative to .main. -->
+    <!-- Instead of body. -->
+    <div class="main">
+      <div class="h100">h100</div>
+      <div class="head">Sticky</div>
+      <div class="h700">h700</div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>03-Sticky: Sticky-positioned element is not the Direct Child of Body.</title>
+    <style>
+      body {
+        margin: 0;
+        /* Allow body to have scrollbar. */
+        height: 3000px;
+      }
+
+      .top {
+        height: 100px;
+        background-color: pink;
+      }
+
+      .main {
+        width: 800px;
+        height: 700px;
+        border: 5px solid red;
+        margin: 50px auto;
+      }
+
+      .main .header {
+        height: 100px;
+        background-color: tomato;
+        font-size: 40px;
+        line-height: 100px;
+        text-align: center;
+
+        position: sticky;
+        top: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="top"></div>
+    <!-- .main doesn't have scroll bar. -->
+    <div class="main">
+      <!-- Not the direct child of body -->
+      <!-- Special Case: -->
+      <!-- When the sticky element bottom edge met with its parent bottom edge -->
+      <!-- The sticky element will be scrolled away together with its parent. -->
+      <div class="header">A Sticky Element.</div>
+    </div>
+  </body>
+</html>

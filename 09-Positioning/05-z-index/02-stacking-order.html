@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>02-Stacking Order</title>
+    <style>
+      body {
+        margin: 0;
+      }
+
+      .container {
+        margin: 80px auto;
+        width: 400px;
+        height: 600px;
+        background-color: #ddd;
+      }
+
+      .box {
+        width: 300px;
+        height: 100px;
+      }
+
+      .box1 {
+        background-color: orchid;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        z-index: -1;
+      }
+
+      .box2 {
+        margin-left: 100px;
+        background-color: yellowgreen;
+      }
+
+      .box3 {
+        background-color: pink;
+        float: left;
+        /* Move to the top by 50px */
+        margin-top: -50px;
+        margin-left: 50px;
+        /* Make the inline block box going up a bit. */
+        margin-bottom: -40px;
+      }
+
+      .box4 {
+        background-color: khaki;
+        display: inline-block;
+        margin-left: 20px
+        /* Why is setting margin-top useless? */
+      }
+
+      .box5 {
+        background-color: orange;
+        position: absolute;
+        left: 110px;
+        top: 240px;
+        z-index: 0;
+      }
+
+      .box6 {
+        background-color: tomato;
+        position: absolute;
+        left: 70px;
+        top: 300px;
+        z-index: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box box1">Negative z-index</div>
+      <div class="box box2">Block-level box</div>
+      <div class="box box3">Floating Box</div>
+      <div class="box box4">Inline Box</div>
+      <div class="box box5">z-index: 0</div>
+      <div class="box box6">z-index: 1</div>
+    </div>
+  </body>
+</html>

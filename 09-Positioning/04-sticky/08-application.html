@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>03-Application: Freezing Table Header - Sticky</title>
+    <style>
+      body {
+        margin: 0;
+      }
+
+      .box {
+        margin: 10px;
+        width: 600px;
+        height: 200px;
+        /* border: 2px solid red; */
+        overflow: auto;
+      }
+
+      .box table {
+        /* Make table same width as box */
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      .box table tr th,
+      .box table tr td {
+        border: 1px solid #333;
+        height: 40px;
+        text-align: center;
+      }
+
+      /* Freeze table header */
+      .box table thead tr th {
+        background-color: rgba(135, 206, 235, 1);
+
+        position: sticky;
+        top: 0;
+        /* Remove the top border of all th in thead. */
+        border-top: none;
+      }
+
+      .box table tbody tr:last-child th,
+      .box table tbody :last-child td {
+        /* Remove the bottom border of all th, td in the last row of tbody */
+        border-bottom: none;
+      }
+
+      /* Re-create top and bottom border. */
+      .box::before,
+      .box::after {
+        content: "";
+        /* Make pseudo element as block instead of inline element. */
+        display: block;
+        height: 1px;
+        /* border: 1px solid #333; */
+        background-color: #333;
+        position: sticky;
+        /* Note when the th of thead become sticky, it creates a new stacking context. */
+        /* We need to raise the z-index of this pseudo element. */
+        z-index: 10;
+      }
+
+      .box::before {
+        top: 0;
+        left: 0;
+      }
+
+      .box::after {
+        bottom: 0;
+        left: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Id</th>
+            <th>Score</th>
+            <th>Rank</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>A</th>
+            <td>0001</td>
+            <td>90</td>
+            <td>1</td>
+          </tr>
+          <tr>
+            <th>B</th>
+            <td>0002</td>
+            <td>88</td>
+            <td>2</td>
+          </tr>
+          <tr>
+            <th>C</th>
+            <td>0003</td>
+            <td>85</td>
+            <td>3</td>
+          </tr>
+          <tr>
+            <th>D</th>
+            <td>0004</td>
+            <td>80</td>
+            <td>4</td>
+          </tr>
+          <tr>
+            <th>E</th>
+            <td>0005</td>
+            <td>79</td>
+            <td>5</td>
+          </tr>
+          <tr>
+            <th>F</th>
+            <td>0006</td>
+            <td>77</td>
+            <td>6</td>
+          </tr>
+          <tr>
+            <th>G</th>
+            <td>0007</td>
+            <td>75</td>
+            <td>7</td>
+          </tr>
+          <tr>
+            <th>H</th>
+            <td>0008</td>
+            <td>70</td>
+            <td>8</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

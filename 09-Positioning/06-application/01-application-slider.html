@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>01-Application: Sliding Navigation</title>
+    <style>
+      body,
+      ul,
+      li {
+        margin: 0;
+        padding: 0;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      .menu {
+        height: 80px;
+        background-color: rgb(251, 190, 180);
+      }
+
+      .menu-list {
+        width: 850px;
+        margin: 0 auto;
+        margin-top: 20px;
+        /* If you didn't want to do clearfix, it is okay to hard code height */
+        height: 80px;
+        position: relative;
+      }
+
+      .menu-list li {
+        float: left;
+        height: 80px;
+      }
+
+      .menu-list li a {
+        display: block;
+        width: 110px;
+        height: 80px;
+        text-align: center;
+        line-height: 80px;
+        padding: 0px 20px;
+        color: #fff;
+        font-size: 20px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .menu-list li.move {
+        width: 170px;
+        height: 100px;
+        background-color: tomato;
+        position: absolute;
+        z-index: 1;
+        top: -10px;
+        /* Sliding is implemented in JS. */
+        left: -10px
+      }
+
+      .clearfix::after {
+        content: "";
+        display: block;
+        clear: both;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Raise a element stacking order. -->
+    <!-- Use relative position. -->
+    <!-- 1. do not affect other element and itself. -->
+    <!-- 2. do not out of document flow. -->
+    <!-- 3. increase stack order -->
+    <div class="menu">
+      <ul class="menu-list clearfix">
+        <!-- If you put .move before all other li and you do not want to set z-index on a element, it is working. -->
+        <!-- <li class="move"></li> -->
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Live</a></li>
+        <li><a href="#">Frontend</a></li>
+        <li><a href="#">Application</a></li>
+        <li><a href="#">Career</a></li>
+        <li><a href="#">About Us</a></li>
+        <!-- A slider -->
+         <!-- You need to set z-index on a element. -->
+        <li class="move"></li>
+      </ul>
+    </div>
+    <script>
+        /* Use JS. */
+    </script>
+  </body>
+</html>

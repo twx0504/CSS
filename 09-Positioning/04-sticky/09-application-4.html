@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>04-Application: Freezing Table Header - Absolute (Alternative)</title>
+    <style>
+      body {
+        margin: 0;
+      }
+
+      /* Position Relative */
+      .container {
+        width: 600px;
+        margin: 10px;
+        position: relative;
+      }
+
+      /* Recreate the bottom border. */
+      .container::after {
+        content: "";
+        position: absolute;
+        height: 1px;
+        left: 0;
+        right: 17px;
+        bottom: 0;
+        background-color: #333;
+      }
+
+      .box {
+        height: 200px;
+        /* border: 2px solid red; */
+        overflow: auto;
+      }
+
+      .box table,
+      /* Ensure the copy header width is 100% */
+      .row table {
+        /* Make table same width as box */
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      .box table tr th,
+      .box table tr td,
+      /* Ensure the height of the copy header is 40px */
+      .row table tr th {
+        border: 1px solid #333;
+        height: 40px;
+        text-align: center;
+      }
+
+      .box table thead tr th,
+      .row table thead tr th {
+        background-color: rgba(135, 206, 235, 1);
+        /* Note: the .row table size do not match with the previous table. */
+        /* Manually make each column as 25% */
+        /* So there'll be the same. */
+        width: 25%;
+      }
+
+      /* Position Absolute */
+      .row {
+        position: absolute;
+        top: 0;
+        left: 0;
+        /* Leave some space for scrollbar on the right. */
+        /* Start at 17px from the right edge. */
+        right: 17px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Position Relative  -->
+    <div class="container">
+      <div class="box">
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Id</th>
+              <th>Score</th>
+              <th>Rank</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>A</th>
+              <td>0001</td>
+              <td>90</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <th>B</th>
+              <td>0002</td>
+              <td>88</td>
+              <td>2</td>
+            </tr>
+            <tr>
+              <th>C</th>
+              <td>0003</td>
+              <td>85</td>
+              <td>3</td>
+            </tr>
+            <tr>
+              <th>D</th>
+              <td>0004</td>
+              <td>80</td>
+              <td>4</td>
+            </tr>
+            <tr>
+              <th>E</th>
+              <td>0005</td>
+              <td>79</td>
+              <td>5</td>
+            </tr>
+            <tr>
+              <th>F</th>
+              <td>0006</td>
+              <td>77</td>
+              <td>6</td>
+            </tr>
+            <tr>
+              <th>G</th>
+              <td>0007</td>
+              <td>75</td>
+              <td>7</td>
+            </tr>
+            <tr>
+              <th>H</th>
+              <td>0008</td>
+              <td>70</td>
+              <td>8</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- A copy of header, used to freeze the header. -->
+      <!-- Position Absolute -->
+      <div class="row">
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Id</th>
+              <th>Score</th>
+              <th>Rank</th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

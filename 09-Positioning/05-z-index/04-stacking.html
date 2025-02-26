@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>04-Stacking Between Different Stacking Contexts</title>
+    <style>
+      .container {
+        width: 500px;
+        height: 500px;
+        background-color: #ddd;
+      }
+
+      .box {
+        width: 200px;
+        height: 200px;
+      }
+
+      /* To change the stack order of stacking context, change the z-index of .box1 and .box2. */
+      .box1 {
+        background-color: pink;
+        /* Create a new stacking context */
+        position: relative;
+        z-index: 1;
+      }
+
+      .box1 .item {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        position: absolute;
+        top: 70px;
+        left: 60px;
+        /* Trying to raise z-index */
+        /* However, it is still beneath B and all B chidlren. */
+        z-index: 1000;
+      }
+
+      .box2 {
+        background-color: rgba(240, 230, 140, 0.9);
+        /* Create a new stacking context */
+        position: relative;
+        top: -50px;
+        left: 50px;
+        z-index: 2;
+      }
+
+      .box2 .item {
+        width: 100px;
+        height: 100px;
+        background-color: blue;
+        position: absolute;
+        top: -50px;
+        left: 25px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- A & B are located within Root Stacking Context. -->
+      <!-- B is stacking on top of A due to higher z-index value.  -->
+      <!-- All of B children is going to be higher up in the stack order. -->
+      <!--  -->
+      <div class="box box1">
+        A
+        <div class="item"></div>
+      </div>
+      <div class="box box2">
+        B
+        <div class="item"></div>
+      </div>
+    </div>
+  </body>
+</html>

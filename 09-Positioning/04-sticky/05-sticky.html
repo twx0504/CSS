@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05-Sticky: Control the Sticky-Positioned Element Position with Bottom</title>
+    <style>
+        body {
+            margin: 0;
+            height: 3000px;
+        }
+        
+        .top {
+            height: 100px;
+            background-color: pink;
+        }
+
+        .h800 {
+            height: 1000px;
+            background-image: linear-gradient(to Bottom, red, yellow);
+        }
+
+        .box {
+            height: 100px;
+            background-color: green;
+            position: sticky;
+            /* You need to see this effect from bottom up. */
+            bottom: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="top"></div>
+    <div class="h800"></div>
+    <div class="box"></div>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Positioned Stacking Context</title>
+    <style>
+      body {
+        margin: 0;
+      }
+
+      /* This .box is in root stacking context */
+      .box {
+        width: 100px;
+        height: 100px;
+        margin: 10px;
+        border: 10px solid red;
+        background-color: skyblue;
+        /* Make it relative-positioned. */
+        position: relative;
+        /* Create a new stacking context when z-index value is not auto. */
+        z-index: 1;
+      }
+
+      .item {
+        width: 100px;
+        height: 100px;
+        background-color: khaki;
+        position: relative;
+        /* .item is in a new stacking context. Not in root stacking context anymore. */
+        /* Although the z-index of this is negative. */
+        /* The stack order is still higher than .box */
+        z-index: -1;
+        /* Located at the top left corner of the content box (not include border). */
+        /* top: 0;
+        left: 0; */
+        top: 40px;
+        left: 65px;
+      }
+
+      .box2 {
+        width: 100px;
+        height: 100px;
+        margin: 10px;
+        margin-top: 50px;
+        border: 10px solid red;
+        background-color: skyblue;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Default: All elements are within HTML root stacking context. -->
+    <!-- .box is a positioned element with positive z-index.-->
+    <!-- Remember, a positioned element + z-index other than auto => Creating a new stacking context. -->
+    <div class="box">
+      <!-- .item is located within the new stacking context of .box. -->
+      <!-- .item is positioned element with negative z-index. -->
+      <!-- Despite having a negative z-index, it is located inside new stacking context created by .box, which is higher than root stacking context. -->
+      <!-- So, it is going to be placed above .box. -->
+      <div class="item"></div>
+    </div>
+
+    <!-- Without creating new stacking context. -->
+    <!-- .box2 is a block-level box. -->
+    <div class="box2">
+      <!-- .item is located within the root stacking context. -->
+      <!-- .item is positioned element with negative z-index. -->
+      <!-- It is going to be placed beneath .box2. -->
+      <div class="item"></div>
+    </div>
+  </body>
+</html>

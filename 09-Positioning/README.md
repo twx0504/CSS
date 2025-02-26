@@ -21,7 +21,7 @@ property: `position` sets how an element is positioned in a document.
 
 - value can be negative.
 
-## 2. Absolute
+## 2. Absolute (Out of Normal Flow)
 
 ### Seven features:
 - a. get out of the document flow.
@@ -62,12 +62,12 @@ margin-top: -50px;
 #### 3. Implement Chatbox
 ![example](chat.png)
 
-## 3. Fixed
+## 3. Fixed (Out of Normal Flow)
 
 - similar to **absolute** but it is positioned relative to the initial containing block (browser window / viewport).
 - Special case: when an ancestor of a fixed-positioned element has `transform`, `perspective`, `filter` or `backdrop-filter` set to a value other than `none`,  the fixed-positioned element will be positioned relative to that ancestor instead of the viewport.
 -values: `top`, `bottom`, `left`, `right`
-### Cases
+### Features
 #### 1. Relative to viewport
 #### 2. Relative to ancestor
 -  when an ancestor of a fixed-positioned element has `transform`, `perspective`, `filter` or `backdrop-filter` set to a value other than `none`
@@ -113,3 +113,191 @@ Note: In real world project, we use positioned absolute to achieve this. But, th
 #### 3. Three-Column Layout
 
 ## 4. Sticky
+
+- remain positioned in normal flow, but offset relative to its nearest scrolling ancestor based on `top`, `right`, `bottom` and `left`.
+
+### Features:
+#### 1. Sticky-positioned element as the Direct Child of Body.
+
+> Body is the nearest scrolling ancestor.
+
+```html
+<style>
+  .top {
+    height: 100px;
+    background-color: #000;
+  }
+
+  .nav {
+    height: 100px;
+    position: sticky;
+    /* When .nav is less than 20px from the top edge of the viewport, it behaves normal like relative-positioned element. */
+    /* When .nav is 20px and above from the top edge of the viewport, it behaves like fixed-positioned element and it is fixed at that point.*/
+    top: 20px;
+    background-color: rgba(132, 202, 230, 0.5);
+
+  }
+  .main {
+    height: 1500px;
+    background-color: khaki;
+  }
+</style>
+<body>
+  <div class="top"></div>
+  <div class="nav"></div>
+  <div class="main"></div>
+</body>
+```
+#### 2. Sticky-positioned element Is Not The Direct Child of Body.
+
+> Body is the nearest scrolling ancestor.
+
+- Sticky behaviors only happens when the height of the sticky-positioned element's direct parent > the height of the sticky-positioned element.
+- When the bottom edge of the sticky-positioned element met with the bottom edge of its direct parent while scrolling, that sticky element will be scrolled away together with its direct parent, and will not stick.
+
+```html
+<style>
+  body {
+    margin: 0;
+    /* Allow body to have scrollbar. */
+    height: 3000px;
+  }
+
+  .top {
+    height: 100px;
+    background-color: pink;
+  }
+
+  .main {
+    width: 800px;
+    height: 700px;
+    border: 5px solid red;
+    margin: 50px auto;
+  }
+
+  .main .header {
+    height: 100px;
+    background-color: tomato;
+    text-align: center;
+    position: sticky;
+    top: 0;
+  }
+</style>
+<body>
+    <div class="top"></div>
+    <!-- .main doesn't have scroll bar. -->
+    <div class="main">
+      <!-- Not the direct child of body -->
+      <!-- Special Case: -->
+      <!-- When the sticky element bottom edge met with its parent bottom edge -->
+      <!-- The sticky element will be scrolled away together with its parent. -->
+      <div class="header">A Sticky Element.</div>
+    </div>
+  </body>
+```
+
+#### 3. The Direct Parent Other Than Body Has The Scrolling Behavior.
+
+#### 4. Control the Sticky-Positioned Element Position with `Bottom`
+
+- to understand it, you need to see the scrolling in reverse (from bottom to top).
+
+
+### Application
+
+when you want to stick an element on a particular position.
+
+#### 1. Sticky Header and Left-side Box Effect
+
+#### 2. Sticky Index Headers
+
+#### 3. Freezing Table Header
+
+- it is also possible to implement using position absolute.
+
+## Z-Index 
+> How to determine the stacking order of each positioned element along z-axis when there's many positioned elements?
+- sets the z-order of a positioned element and its descendants.
+
+### Features (Within the Same Stacking Context)
+> Example, several absolute-positioned elements within a relative-positioned element.
+- value: `auto` (default)
+- value can be positve or negative.
+- the higher the z-index value, the higher the stack order of the element.
+- Elements with the same z-index value, the latter one will cover the previous one.
+- z-index only works with positioned elements only.
+
+
+## Concept: Stacking Context
+
+### 1. What is Stacking Context?
+> The z-axis exists, regardless of whether stacking happens or not.
+
+- By default, each element are placed on 2D (x & y axis) plane (No stacking along z-axis).
+- A 3D concept of HTML, where elements are arranged along the z-axis (perpendicular to the sceen / relative to users / viewer).
+- represents how each element stacks on top of each other based on their stacking order (Stacking happens along z-axis).
+- when an element has created a new stacking context, it is considered "higher" on the z-axis than any of its sibling elements (closer to the screen / viewer).
+![stacking context](stackingcontext.png)
+
+### 2. The Creation of Stacking Context
+
+#### Types of Stacking Contexts
+
+1. Root stacking context: html / root element: narutally forms the first and default stacking context.
+2. Traditional Stacking context for Positioned Element: postioned element with z-index value other than `auto`.
+> when you give position and z-index to an element, it will display on top of other element, because that element is having a new stacking context, and higher up along the z-axis.  
+- position `relative` or `absolute` and the z-index is not `auto`.
+- position `fixed` or `sticky`.
+3. Stacking context created by other CSS3 properties.
+- flex item with z-index value other than `auto`.
+- element with its opacity value other than `1`.
+- element with its transform value other than `none`.
+- element with its filter value other than `none`.
+- element with its isolation value as `isolate`.
+- `will-change` value as any of the aforementioned property name.
+- element with `-webkit-overflow-scrolling` set as `touch`.
+- for more info looks at [stacking context](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_context).
+
+### 3. Stacking Order
+
+> Besides positioned elements, there are many cases where elements overlap.
+
+- Stacking order determines how elements are arranged and stacked on top of each other.
+
+- Increasing Stacking Order within Each Stacking Context:
+![Stacking Order](order.png)
+  ```html
+  <!-- Increasing Stacking Order within Each Stacking Context -->
+  1. Background of current stacking context
+  2. Box with negative z-index
+  3. Block-level box
+  4. Floating box
+  5. Inline or inline-block box
+  6. Box with z-index (from 0 upwards)
+  7. Box with positive z-index
+  ```
+- Increasing Stacking Order among Stacking Contexts
+  ```html
+  <!-- Increasing Stacking Order among Stacking Contexts... -->
+  1. Root Stacking Context
+  2. First Positioned Stacking Context
+  3. Second Positioned Stacking Context
+  4. ...the list goes on.
+  ```
+
+**Cases**:
+> 1. within Root Stacking Context
+> > If `z-index: -1` is set, the element will appear beneath all the other elements.
+> 2. within Positioned Stacking Context
+> > If `z-index: -1` is set, the element will appear beneath all other elements within that stacking context. 
+> > However, it still remains within the stacking context of its parent and does not go below the root stacking context (HTML).
+> 3. Arrangement of Different Positioned Stacking Contexts
+> > If Stacking Context A has a higher stacking order than B, all children inside A will be displayed above B, regardless of their individual `z-index` values.
+> > If Stacking Context B has a higher stacking order than A, then the reverse is true.
+
+
+**How do you determine the stacking order of two elements?**
+
+> Compare based on their stacking context:
+> If it is within the same stacking context, compare based on the arrangement of element.
+> If it is in different stacking contexts, the entire stacking context is treated as a single unit and compared. Note, `z-index` can only control the stacking order of elements within the same stacking context.
