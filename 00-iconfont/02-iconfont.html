@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>02-Iconfont - Unicode</title>
+    <style>
+      /* Remember to change the path if you put the resource on the other place. */
+      @font-face {
+        font-family: "iconfont"; /* Project id 4839938 */
+        src: url("./iconfont/iconfont.woff2?t=1740581360932") format("woff2"),
+          url("./iconfont/iconfont.woff?t=1740581360932") format("woff"),
+          url("./iconfont/iconfont.ttf?t=1740581360932") format("truetype");
+      }
+
+      .iconfont {
+        font-family: "iconfont" !important;
+        font-size: 16px;
+        font-style: normal;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      .font-34 {
+        font-size: 34px;
+      }
+    </style>
+  </head>
+  <body>
+    <span class="iconfont font-34">&#xe600;</span>
+    <span class="iconfont">&#xe8c6;</span>
+  </body>
+</html>
