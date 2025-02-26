@@ -1,13 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>02-Application: Glowing Button</title>
-    <style></style>
-</head>
-<body>
-    <div></div>
+    <style>
+      body {
+        background-color: #000;
+      }
+      a.button {
+        display: block;
+        width: 160px;
+        height: 50px;
+        background-color: #333;
+        text-decoration: none;
+        color: yellow;
+        text-align: center;
+        line-height: 50px;
+        border-radius: 5px;
+        font-weight: bold;
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* use position to fix this pseudo element to the top left corner. */
+      /* Fluffy Ball */
+      a.button::before {
+        content: "";
+        display: block;
+        width: 300px;
+        height: 300px;
+        /* Fluffy ball Effect */
+        background-image: radial-gradient(yellow, transparent, transparent);
+        position: absolute;
+        /* Animation: Make left and top value as the mouse position using JS. */
+        left: 0;
+        /* left: 50px; */
+        top: 0;
+        /* Remember this fluffy ball is a square. */
+        /* We want to fix this element's center to the top left corner of .button */
+        margin-left: -150px;
+        margin-top: -150px;
+      }
+
+      /* Cover */
+      a.button::after {
+        content: "";
+        position: absolute;
+        /* Alternative: */
+        /* left: 2px;
+        right: 2px;
+        top: 2px;
+        bottom: 2px; */
+        inset: 2px;
+        background-color: #333;
+        border-radius: 5px;
+      }
+
+      .m-center {
+        margin: 50px auto;
+      }
+
+      a.button span {
+        position: relative;
+        /* Raise the stacking order of text */
+        /* >= 1 is fine */
+        z-index: 10;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="" class="button m-center">
+      <!-- ::before -->
+      <!-- Wrap text in span. -->
+      <span>Add to Cart</span>
+      <!-- Note: ::after covers the text. -->
+      <!-- ::after -->
+    </a>
     <script></script>
-</body>
+  </body>
 </html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>03-Application: Fix Secondary Dropdown Menu on Carousel</title>
+    <style>
+      /* Reset */
+      body,
+      ul,
+      li {
+        margin: 0;
+        padding: 0;
+      }
+      li {
+        list-style: none;
+      }
+      a {
+        text-decoration: none;
+        color: #fff;
+      }
+
+      /* Menu */
+      .menu {
+        height: 80px;
+        background-color: skyblue;
+      }
+      .menu-list {
+        width: 1000px;
+        margin: 0 auto;
+      }
+      .menu-list > li {
+        float: left;
+        position: relative;
+        z-index: 1; /* Create stacking context */
+      }
+      /* Select direct children. */
+      .menu-list > li > a {
+        display: block;
+        padding: 0 20px;
+        line-height: 80px;
+        color: #fff;
+      }
+      .menu-list > li .submenu {
+        position: absolute; /* Create stacking context */
+        /* Do not set height */
+        /* The following left and right allows the submenu width same as li. */
+        left: 0;
+        right: 0;
+        top: 80px;
+        /* Hide before hover. */
+        display: none;
+        /* You can add z-index here instead of .menu-list > li. */
+        /* z-index: 1; */
+      }
+      .menu-list > li:hover {
+        background-color: rgb(54, 172, 219);
+      }
+      .menu-list > li:hover .submenu {
+        /* Display when hover. */
+        display: block;
+      }
+      .menu-list > li .submenu a {
+        display: block;
+        line-height: 50px;
+        text-align: center;
+        background-color: skyblue;
+      }
+      .menu-list > li .submenu a:hover {
+        background-color: rgb(35, 148, 193);
+      }
+
+      /* Banner */
+      .banner {
+        width: 1000px;
+        margin: 0 auto;
+      }
+      .banner-content {
+        position: relative;
+        z-index: 0; /* Create stacking context */
+      }
+      /* Each img is stacked on top of each other. */
+      .banner-content img {
+        width: 80%;
+        position: absolute; /* Create stacking context */
+        left: 0;
+        top: 0;
+        object-fit: cover;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="menu">
+      <ul class="menu-list">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Live</a></li>
+        <li>
+          <a href="#">Frontend</a>
+          <!-- Secondary Dropdown Menu -->
+          <ul class="submenu">
+            <li><a href="#">HTML5+CSS3</a></li>
+            <li><a href="#">JavaScript</a></li>
+            <li><a href="#">Vue3</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Architect</a></li>
+        <li><a href="#">Videos</a></li>
+        <li><a href="#">About Us</a></li>
+      </ul>
+    </div>
+
+    <!-- primary li, submenu and img within same stacking context. -->
+    <!-- Solution: increase the z-index of submenu > img. -->
+    <!-- Banner - Carousel -->
+    <div class="banner">
+      <!-- Default: imgs within the same stacking context (HTML Root Stacking Context), the latter one covers the previous one. -->
+      <!-- imgs are stacked on top of each other. -->
+      <!-- Change img through pagination button. -->
+      <!-- Control the z-index of img for changing. -->
+
+      <div class="banner-content">
+        <!-- Adding inline style -->
+        <img src="./dog.webp" style="z-index: 2" />
+        <img src="./dog2.jpeg" style="z-index: 3" />
+        <!-- many imgs... -->
+      </div>
+    </div>
+  </body>
+</html>
