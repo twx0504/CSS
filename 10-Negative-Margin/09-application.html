@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>05-Application: Holy Grail Layout</title>
+    <style>
+      body {
+        margin: 0;
+      }
+
+      .header {
+        height: 100px;
+        background-color: orange;
+      }
+
+      .container {
+        padding-left: 200px;
+        padding-right: 250px;
+        overflow: hidden;
+      }
+
+      .container > div {
+        float: left;
+      }
+
+      .container .main {
+        /* This width is not included the padding of the container. */
+        width: 100%; /* Make sure it takes the width of parent's containing block's width (content area). */
+        min-height: 500px;
+        background-color: skyblue;
+      }
+
+      .container .left {
+        background-color: pink;
+        width: 200px;
+        min-height: 500px;
+        /* key */
+        /* Move to the left by 100% of its containing block (content area). */
+        /* .left moves to the left edge of container content. */
+        margin-left: -100%;
+        /* To make adjustment without affecting other elements */
+        position: relative;
+        /* Move to the left based on the element's current position. */
+        left: -200px;
+      }
+
+      .container .right {
+        background-color: tomato;
+        width: 250px;
+        min-height: 500px;
+        /* key */
+        /* When content of container can't occupy .right box due to padding-right. */
+        /* When margin direction against float direction: */
+        /* margin-right: -250px （which is equivalent to .right width） causes .right box no longer occupy the space, so visually its width is 0px (note: its content still there) */
+        /* Feature of floated element: it will shifted to the left and until it touches the edge of its containing box (content) / another floated element. */
+        /* This causes the .right box aligned next to .main. */
+        /* Note: setting width < -250px also works to make .right visually 0px. */
+        margin-right: -250px;
+
+        /* When container doesn't have padding-right.  */
+        /* Which means there's space for .right. */
+        /* Use margin-left will move .right and elements behind .right to the left. */
+        /* So, .right will occupy the content-area of container that is previously padding-right. */
+        /* we use margin-left: -250px */
+      }
+
+      .footer {
+        height: 100px;
+        background-color: #ddd;
+      }
+
+      .clearfix::after {
+        content: "";
+        display: block;
+        clear: both;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">Header</div>
+    <div class="container clearfix">
+      <!-- main area must be bringing forward for SEO. -->
+      <div class="main">Main</div>
+      <div class="left">Left</div>
+      <div class="right">Right</div>
+    </div>
+    <div class="footer">Footer</div>
+  </body>
+</html>

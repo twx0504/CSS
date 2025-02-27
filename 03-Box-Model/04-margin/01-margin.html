@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>01-Margin</title>
+    <style>
+      body {
+        margin: 0;
+      }
+      
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: skyblue;
+      }
+
+      .box1 {
+        margin-top: 20px;
+        margin-left: 50px;
+        margin-bottom: 30px;
+      }
+
+      .box2 {
+        /* margin top and bottom as 0px */
+        /* margin left and right as 20px */
+        /* Note: setting margin top here will cause margin collapsing. */
+        margin: 0 20px;
+
+        /* Comment out the following code to see what happens. */
+        /* It seems nothing has changed. */
+        /* But opening dev tool you will observe that the margin is actually applied. */
+        /* But it will collapse / combine with the margin-bottom of the .box1. */
+        /* This is because the margin-bottom value of box1 > margin-top of box2. */
+        /* margin: 20px 20px; */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box box1">1</div>
+    <div class="box box2">2</div>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>02-Negative Margin</title>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: skyblue;
+        /* box moves up, the elements below box also move up. */
+        /* margin-top: -50px; */
+
+        /* box remains where it is. */
+        /* elements behind box moves up. */
+        margin-bottom: -50px;
+      }
+
+      .box2 {
+        width: 100px;
+        height: 100px;
+        background-color: khaki;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+    <div class="box2"></div>
+  </body>
+</html>

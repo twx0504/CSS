@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>03-Margin Collapse: Sibling</title>
+    <style>
+      body {
+        margin: 0;
+      }
+
+      .box {
+        width: 200px;
+        height: 100px;
+      }
+
+      .box1 {
+        background-color: skyblue;
+        /* The margin between box1 and box2 collapsed into a single margin. */
+        /* That margin takes margin bottom of box1. */
+        /* Because its value is larger. */
+        /* Comment out if using solution 2. */
+        margin-bottom: 40px;
+
+        /* Solution 1: Add inline-block to one of the box. */
+        /* display: inline-block; */
+
+        /* Solution 2: Add the margin to only box1. */
+        /* margin-bottom: 140px; */
+      }
+
+      /* Solution 3: */
+      /* .box3 {
+        padding-top: 140px;
+      } */
+
+      .box2 {
+        /* This background color we might as well remove later. */
+        background-color: yellow; /* Comment out if using solution 4. */
+
+        /* Comment out if using solution 1 or solution 2. */
+        /* margin-top: 100px;  */
+
+        /* Solution 4: Change one margin of either box to padding. */
+        padding-top: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box box1">Box 1</div>
+    <div class="box box2">
+      <!-- Comment out if using solution 4. -->
+      <div style="background-color: red">box2</div>
+      <div style="background-color: red; height: 100%">Content</div>
+    </div>
+
+    <!-- Comment out if using solution 3. -->
+    <!-- <div class="box3">
+      <div class="box box2"></div>
+    </div> -->
+  </body>
+</html>

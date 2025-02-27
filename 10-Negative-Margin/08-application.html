@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>04-Application: Centering</title>
+    <style>
+      body {
+        margin: 0;
+      }
+
+      .container {
+        width: 200px;
+        height: 200px;
+        background-color: khaki;
+        position: absolute;
+        /* Centering */
+        left: 50%;
+        top: 50%;
+        margin-left: -100px;
+        margin-top: -100px;
+      }
+
+      .item {
+        width: 100px;
+        height: 100px;
+        background-color: skyblue;
+        position: absolute;
+        /* Centering */
+        left: 50%;
+        top: 50%;
+        margin-left: -50px;
+        margin-top: -50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="item"></div>
+    </div>
+  </body>
+</html>

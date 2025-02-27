@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>06-Application: Double Wing Layout</title>
+    <style>
+      body {
+        margin: 0;
+      }
+      /* Direct children (divs) of body */
+      body > div {
+        float: left;
+        min-height: 500px;
+      }
+      .main {
+        /* Make sure the main takes the whole browser width (viewport) */
+        width: 100%;
+        background-color: #ddd;
+      }
+      .main .content {
+        /* Set padding on left and right for the other two columns. */
+        min-height: 500px;
+        margin: 0 250px 0 200px;
+        background-color: skyblue;
+      }
+      .left {
+        width: 200px;
+        background-color: khaki;
+        /* Key */
+        margin-left: -100%;  /* Move to the left by 100% width of browser (viewport)  */
+      }
+      .right {
+        width: 250px;
+
+        background-color: tomato;
+        /* Key */
+        margin-left: -250px; /* Move to the left by 250px */
+      }
+      .clearfix::after {
+        content: "";
+        display: block;
+        clear: both;
+      }
+    </style>
+  </head>
+  <body class="clearfix">
+    <div class="main">
+      <div class="content">Content</div>
+    </div>
+    <div class="left">Left</div>
+    <div class="right">Right</div>
+  </body>
+</html>

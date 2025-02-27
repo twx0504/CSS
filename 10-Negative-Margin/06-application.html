@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>02-Application: Single-Row Multi-Column Grid</title>
+    <style>
+
+      body,
+      ul {
+        margin: 0;
+        padding: 0;
+      }
+
+      .container ul {
+        width: 805px;
+        margin: 10px;
+        list-style: none;
+        background-color: khaki;
+      }
+      .container ul li {
+        float: left;
+        width: 200px;
+        height: 200px;
+        border: 1px solid red;
+        /* Note: border 1px in laptop is 0.8px due to display scaling. */
+        /* margin-right: 1px; */
+        margin-right: -0.8px;
+        /* -0.8px might be more accurate. */
+      }
+
+      .clearfix::after {
+        content: "";
+        display: block;
+        clear: both;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <ul class="clearfix">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+  </body>
+</html>

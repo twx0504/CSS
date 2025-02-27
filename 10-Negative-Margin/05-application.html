@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>01-Application: Equal Height Layout</title>
+    <style>
+      body {
+        margin: 0;
+      }
+
+      .container {
+        width: 800px;
+        border: 2px solid red;
+        margin: 50px auto;
+        /* 3. Hide the content of left that is exceeding container */
+        overflow: hidden;
+
+        /* Alternative: */
+        /* position: relative; */
+      }
+
+      .left {
+        width: 200px;
+        background-color: skyblue;
+        float: left;
+        /* 1. We add a lot of padding bottom to make left very tall. */
+        padding-bottom: 2000px;
+        /* 2. Use margin-bottom to pull back the 2000px so the left is again looks like before. */
+        margin-bottom: -2000px;
+
+        /* Note: we can also use position absolute to achive this. */
+        /* position: absolute;
+        top: 0;
+        left: 0; */
+      }
+
+      .right {
+        width: 400px;
+        background-color: pink;
+        float: right;
+      }
+
+      /* Clear Float */
+      .clearfix::after {
+        content: "";
+        display: block;
+        clear: both;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- The right column height will be determined by the content. -->
+    <!-- The left column height will always be the same as the right column. -->
+    <div class="container clearfix">
+      <div class="left">Left</div>
+      <div class="right">
+        <ul>
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+          <li>4</li>
+          <li>5</li>
+          <li>6</li>
+          <li>7</li>
+          <!-- adding more li here will also make the left to increase in height. -->
+          <!-- This makes sure the height of left and right is equal. -->
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

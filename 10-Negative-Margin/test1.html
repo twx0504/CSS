@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>test1: A negative margin is applied opposite the float </title>
+    <style>
+      /* A negative margin is applied opposite the float */
+      #mydiv1 {
+        width: 200px;
+        height: 200px;
+        background-color: rgba(135, 206, 235, 0.5);
+        float: left;
+        margin-right: -300px;
+      }
+
+      #mydiv2 {
+        width: 200px;
+        height: 200px;
+        float: left;
+        background-color: rgba(240, 230, 140, 0.5);
+      }
+
+      .clearfix::after {
+        content: "";
+        display: block;
+        clear: both;
+      }
+    </style>
+  </head>
+  <body class="clearfix">
+    <div id="mydiv1">First</div>
+    <div id="mydiv2">Second</div>
+  </body>
+</html>
