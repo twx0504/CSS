@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>02-Float</title>
+    <style>
+      .box {
+        width: 400px;
+        height: 200px;
+        border: 1px solid;
+      }
+
+      .item {
+        width: 200px;
+        height: 50px;
+      }
+
+      .item1 {
+        background-color: yellow;
+      }
+
+      .item2 {
+        width: 400px;
+        background-color: rgba(135, 206, 235, 0.5);
+        float: left;
+
+        /* 
+        Adding float to an element get it out of the normal flow.
+        item2 becomes non-existent from item3 perspective.
+        item2 doesn't occupy any space.
+        */
+      }
+
+      .item3 {
+        height: 100px;
+        background-color: pink;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div class="item item1">1</div>
+      <div class="item item2">2</div>
+      <div class="item item3">3</div>
+    </div>
+  </body>
+</html>

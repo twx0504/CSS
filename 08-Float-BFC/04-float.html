@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>04-Float: Inline block property</title>
+    <style>
+      span {
+        /* Initially, setting size is useless for inline elements. */
+        width: 100px;
+        height: 30px;
+        background-color: tomato;
+        text-align: center;
+        line-height: 30px;
+        color: #fff; /* This font color will affect the border color. */
+
+        border: 1px solid #000;
+        margin: 10px;
+        /* But, floated element allows it to have inline-block property. */
+        /* Comment out to see the effect. */
+        float: left;
+        /* Check dev tool's computed style, display has been changed to block when you have float set. */
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Floated Elements Show Inline-block Properties.</h1>
+    <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span
+    ><span>6</span><span>7</span>
+  </body>
+</html>

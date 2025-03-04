@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>03-Application</title>
+    <style>
+      body {
+        margin: 0;
+      }
+
+      .clearfix::after {
+        content: "";
+        display: block;
+        clear: both;
+      }
+
+      .box {
+        width: 100%;
+        background-color: #ddd;
+        padding: 10px 0;
+      }
+
+      .box .left,
+      .box .right {
+        width: 200px;
+      }
+
+      .box .left,
+      .box .right,
+      .box .middle {
+        height: 100px;
+      }
+
+      .box .left {
+        background-color: tomato;
+        float: left;
+      }
+
+      .box .middle {
+        background-color: yellow;
+        margin: 0 220px;
+      }
+
+      .box .right {
+        background-color: orange;
+        float: right;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box clearfix">
+      <div class="left">left</div>
+      <div class="right">right</div>
+      <!-- The order of element in HTML is important. -->
+      <!-- Putting .middle between .left & .right might cause .right to drop to new line. -->
+      <!-- This uses the concept that the block element will ignore the previous floated element. -->
+      <div class="middle">middle</div>
+    </div>
+  </body>
+</html>

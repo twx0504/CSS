@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>07-Float: Layouting</title>
+    <style>
+      /* 
+      1. Finish the layout first.
+      2. Use comment to separate each section.
+      3. Use background color as a guide for layouting.
+      */
+
+      /* In real project, we use reset.css. */
+      /* This universal selector might affects the performance. */
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+
+      .clearfix::after {
+        content: "";
+        display: block;
+        clear: both;
+      }
+
+      /* topbar start */
+      .topbar {
+        width: 100%;
+        height: 40px;
+      }
+      /* topbar end */
+
+      /* header start */
+      header {
+        width: 1000px;
+        height: 100px;
+        margin: 20px auto 0;
+      }
+
+      header .logo {
+        width: 200px;
+        height: 100px;
+        background-color: skyblue;
+        float: left;
+      }
+
+      header .login {
+        width: 200px;
+        height: 30px;
+        background-color: orange;
+        float: right;
+      }
+
+      header .top-nav {
+        /* Make sure this width is large enough to drop the top-nav into a new line. */
+        width: 660px;
+        height: 50px;
+        background-color: tomato;
+        float: right;
+        margin-top: 20px;
+      }
+      /* header end */
+
+      /* main start */
+
+      main {
+        width: 1000px;
+        /* In real life we can't specify height. */
+        /* height: 500px; */
+
+        /* Create BFC to avoid height collapse. */
+        /* It is like create an isolated container that contains any floated element in it */
+        /* The height will not collapse. */
+        /* overflow: hidden; */
+
+        margin: 30px auto;
+      }
+
+      main .ad {
+        width: 300px;
+        height: 500px;
+        background-color: #8693e4;
+        float: left;
+      }
+
+      main article {
+        width: 680px;
+        height: 500px;
+        float: left;
+        margin-left: 20px;
+      }
+
+      /* Note: Not more than 3 levels when writing selectors. */
+      main article .banner {
+        width: 680px;
+        height: 380px;
+        background-color: orange;
+      }
+
+      main article .pics {
+        width: 680px;
+        height: 100px;
+        margin-top: 20px;
+      }
+
+      main article .pics ul {
+        list-style: none;
+      }
+      main article .pics ul li {
+        width: 160px;
+        height: 100px;
+        background-color: violet;
+        float: left;
+        margin-right: 10px;
+      }
+
+      main article .pics ul li:last-child {
+        margin-right: 0px;
+        /* Fill the remaining 10px */
+        /* Next time using flex. */
+        width: 170px;;
+      }
+      /* main end */
+
+      /* footer start */
+      footer {
+        width: 1000px;
+        height: 80px;
+        background-color: #ddd;
+        margin: 0 auto;
+      }
+      /* footer end */
+    </style>
+  </head>
+  <body>
+    <!-- topbar start -->
+    <div class="topbar"></div>
+    <!-- topbar end -->
+
+    <!-- header start -->
+    <header>
+      <div class="logo"></div>
+      <div class="login"></div>
+      <nav class="top-nav"></nav>
+    </header>
+    <!-- header end -->
+
+    <!-- main start -->
+    <main class="clearfix">
+      <aside class="ad"></aside>
+      <article>
+        <div class="banner"></div>
+        <div class="pics">
+          <ul>
+            <li><img src="" alt="" /></li>
+            <li><img src="" alt="" /></li>
+            <li><img src="" alt="" /></li>
+            <li><img src="" alt="" /></li>
+          </ul>
+        </div>
+      </article>
+    </main>
+    <!-- main end -->
+
+    <!-- footer start  -->
+    <footer></footer>
+    <!-- footer end -->
+  </body>
+</html>

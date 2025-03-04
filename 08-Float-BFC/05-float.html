@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>05-Float: Height Collapsing</title>
+    <style>
+      .box {
+        width: 300px;
+        /* Without height, height will be 0 */
+        /* Unless you put children in it. */
+        /* Note: We can't set fixed height as it is based on the data responded from the backend. */
+        border: 2px solid;
+
+        /* Create BFC for parent to resolve height collapse even if parent do not set height */
+        /* method 1, 2 & 3 changes the layout method. */
+        /* method 4 doesn't change the layout */
+        
+        /* 1. float is not none */
+        /* float: left; */
+
+        /* 2. position is not static / relative / sticky */
+        /* position: absolute; */
+
+        /* 3. display as inline-block, flex, inline-flex */
+        /* display: inline-block; */
+
+        /* 4. overflow: hidden - any overflow content will be hidden. */
+        /* overflow: hidden; */
+
+      }
+
+      .box .item {
+        width: 100px;
+        height: 100px;
+        /* Adding float to item, the height of parent collapsed. */
+        /* Note that our parent doesn't set any height! */
+        float: left;
+      }
+
+      .box .item1 {
+        background-color: tomato;
+      }
+
+      .box .item2 {
+        background-color: skyblue;
+      }
+
+      .box .item3 {
+        background-color: khaki;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Floated element causes height collapse of parent.</h1>
+    <div class="box">
+      <div class="item item1"></div>
+      <div class="item item2"></div>
+      <div class="item item3"></div>
+      <!-- Note: Setting a text behind the floated element will resolve the height collapse issue. -->
+      <!-- Comment out to see what will happen. -->
+      <!-- ddd -->
+    </div>
+  </body>
+</html>

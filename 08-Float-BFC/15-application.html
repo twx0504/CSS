@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>02-Application</title>
+    <style>
+      body {
+        margin: 0;
+      }
+      .clearfix::after {
+        content: "";
+        display: block;
+        clear: both;
+      }
+
+      .box {
+        width: 1000px;
+        background-color: #ddd;
+        margin: 20px auto;
+      }
+
+      .box > div {
+        width: 200px;
+        height: 100px;
+        float: left;
+      }
+
+      .box .left {
+        background-color: lightblue;
+      }
+      .box .middle {
+        width: 560px;
+        background-color: lightgreen;
+        margin: 10px 0;
+      }
+      .box .right {
+        background-color: lightpink;
+      }
+
+      .box .left,
+      .box .right {
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box clearfix">
+      <div class="left">left</div>
+      <div class="middle">middle</div>
+      <div class="right">right</div>
+    </div>
+  </body>
+</html>

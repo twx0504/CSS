@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>05-Application</title>
+    <style>
+      /* Reset */
+      body,
+      ul {
+        margin: 0;
+      }
+      ul {
+        padding: 0;
+        list-style: none;
+      }
+      .clearfix::after {
+        content: "";
+        display: block;
+        clear: both;
+      }
+      /* top nav start */
+      .top-nav {
+        height: 80px;
+        background-color: lightblue;
+      }
+      /* top nav end */
+
+      .container {
+        width: 1200px;
+        margin: 10px auto;
+      }
+
+      /* header start */
+      header {
+        margin-bottom: 20px;
+      }
+      header .logo {
+        width: 100px;
+        height: 150px;
+        background-color: lightpink;
+        float: left;
+      }
+      header .account-info {
+        width: 550px;
+        height: 55px;
+        margin-bottom: 10px;
+        background-color: lightgreen;
+        float: right;
+      }
+      header .nav-bar {
+        width: 800px;
+        height: 75px;
+        background-color: tomato;
+        float: right;
+      }
+      /* header end */
+
+      /* main start */
+      main .left,
+      main .right {
+        width: 250px;
+      }
+      main .left,
+      main .right {
+        height: 600px;
+      }
+      main .left {
+        background-color: violet;
+        float: left;
+      }
+      main .right {
+        background-color: orange;
+        float: right;
+      }
+      main .middle {
+        margin: 0 260px;
+      }
+      main .middle .banner {
+        background-color: lightcoral;
+        height: 340px;
+      }
+      main .middle .pics ul li {
+        width: 160px;
+        height: 250px;
+        background-color: aquamarine;
+        float: left;
+        margin: 5px;
+        margin-bottom: 0;
+      }
+      /* main end */
+
+      /* footer start */
+      footer {
+        height: 100px;
+        background-color: #ddd;
+      }
+      /* footer end */
+    </style>
+  </head>
+  <body>
+    <!-- top nav start -->
+    <div class="top-nav"></div>
+    <!-- top nav end -->
+    <div class="container">
+      <!-- header start -->
+      <header class="clearfix">
+        <div class="logo"></div>
+        <div class="account-info"></div>
+        <nav class="nav-bar"></nav>
+      </header>
+      <!-- header end -->
+      <!-- main start -->
+      <main class="clearfix">
+        <aside class="left"></aside>
+        <aside class="right"></aside>
+        <article class="middle">
+          <div class="banner"></div>
+          <div class="pics">
+            <ul class="clearfix">
+              <li>1</li>
+              <li>2</li>
+              <li>3</li>
+              <li>4</li>
+            </ul>
+          </div>
+        </article>
+      </main>
+      <!-- main end -->
+    </div>
+    <!-- footer start -->
+    <footer></footer>
+    <!-- footer end -->
+  </body>
+</html>

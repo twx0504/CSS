@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>01-Clear 1: overflow hidden</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      div {
+        /* Clear Float => Method 1:  */
+        /* Create BFC: Avoid height collapsing when no setting height on div. */
+        /* Each div now will contains their floats. */
+        /* The effect of float will not extend beyond the boundary of the div. */
+        overflow: hidden;
+        /* border: 1px solid; */
+        margin-bottom: 10px;
+      }
+      p {
+        width: 100px;
+        height: 100px;
+        background-color: orange;
+        float: left;
+        margin-right: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <p></p>
+      <p></p>
+    </div>
+    <div>
+      <p></p>
+      <p></p>
+    </div>
+  </body>
+</html>

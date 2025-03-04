@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>01-Application</title>
+    <style>
+      .box {
+        width: 600px;
+        border: 10px solid;
+        /* This is a way. */
+        /* overflow: hidden; */
+      }
+
+      .box .left {
+        width: 200px;
+        height: 200px;
+        background-color: orange;
+        float: left;
+      }
+
+      .box .right {
+        width: 360px;
+        height: 200px;
+        background-color: tomato;
+        float: right;
+      }
+      .clearfix::after {
+        content: "";
+        display: block;
+        clear: both;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box clearfix">
+      <div class="left">Left</div>
+      <div class="right">Right</div>
+      <!-- <div style="clear: both;"></div> -->
+    </div>
+  </body>
+</html>

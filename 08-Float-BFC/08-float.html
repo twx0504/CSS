@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>08-Float: BFC</title>
+    <style>
+      div {
+        /* Usage of BFC 1: suppress margin collapse! */
+        overflow: hidden;
+        /* border: 10px solid; */
+      }
+      p {
+        width: 200px;
+        height: 200px;
+        background-color: orange;
+        margin: 50px;
+        /* margin collpase in vertical direction. */
+      }
+
+      .box1 {
+        background-color: rgba(135, 206, 235, .6);
+        width: 300px;
+        height: 300px;
+        float: left;
+      }
+      .box2 {
+        width: 200px;
+        height: 200px;
+        background-color: tomato;
+        /* Without BFC, box2 ignores box1, and box1 which is floated covers box2. */
+        /* Usage of BFC2: exclude external float. */
+        /* In this case, we don't know set float: left on box2. */
+        /* But we can't achieve side by side layout too. */
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <p></p>
+    </div>
+    <div>
+      <p></p>
+    </div>
+  </body>
+
+  <section class="box1"></section>
+
+  <section class="box2"></section>
+</html>

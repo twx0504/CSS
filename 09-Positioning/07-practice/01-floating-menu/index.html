@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>01-Floating Menu</title>
+    <link rel="stylesheet" href="./iconfont/iconfont.css" />
+    <style>
+      html {
+        height: 100%;
+        scroll-behavior: smooth;
+      }
+      body {
+        height: 3000px;
+        background-color: #eee;
+      }
+
+      /* Reset */
+      body,
+      ul,
+      p {
+        margin: 0;
+        padding: 0;
+      }
+
+      ul {
+        background-color: #fff;
+        list-style: none;
+        color: #ccc;
+      }
+
+      a {
+        display: block;
+        text-decoration: none;
+        height: inherit;
+        color: inherit;
+        /* Raise the stacking order so a will not be covered by the text comes after it. */
+        position: relative;
+        z-index: 1;
+      }
+
+      /* Menu */
+      .menu {
+        position: fixed;
+        right: 10px;
+        top: 10px;
+      }
+
+      .menu .item {
+        width: 80px;
+        height: 90px;
+        position: relative;
+        text-align: center;
+        margin-bottom: 1px;
+        border-bottom: 1px solid #eee;
+      }
+
+      .menu .item:last-child {
+        /* Remove the last item border-bottom. */
+        border-bottom: none;
+      }
+
+      /* Adjust iconfont */
+      .menu .item .set-icon {
+        font-size: 30px;
+        line-height: 90px;
+      }
+
+      .menu .item span {
+        font-size: 16px;
+        display: block;
+        position: absolute;
+        left: 50%;
+        /* Move to the left by half its width. */
+        transform: translateX(-50%);
+        bottom: 6px;
+      }
+
+      .menu .item:hover {
+        color: #ff6700;
+      }
+
+      /* QR */
+      .qr-item {
+        width: 100px;
+        position: absolute;
+        padding: 10px;
+        top: 0;
+        transform: translateX(-100%);
+        left: -10px;
+        background-color: #fff;
+        /* Hide Qr */
+        display: none;
+      }
+
+      .menu .item1:hover ~ .qr-item {
+        /* Show Qr */
+        display: block;
+      }
+
+      .qr-item img {
+        width: 100%;
+      }
+
+      .qr-item p {
+        text-align: center;
+        color: #aaa;
+        padding: 4px 0;
+      }
+
+      /* Back to Top Button */
+      a.back-button {
+        padding: 5px 10px;
+        height: fit-content;
+        border: none;
+        background-color: #fff;
+        border-radius: 3px;
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+      }
+
+      a.back-button:hover {
+        color: #ff6700;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="menu">
+      <li class="item item1">
+        <a class="set-icon iconfont icon-shouji" href=""></a>
+        <span class="span">App</span>
+      </li>
+      <li class="item">
+        <a class="set-icon iconfont icon-geren" href=""></a>
+        <span class="span">Account</span>
+      </li>
+      <li class="item">
+        <a class="set-icon iconfont icon-gongju" href=""></a>
+        <span class="span">Tools</span>
+      </li>
+      <li class="item">
+        <a class="set-icon iconfont icon-erji" href=""></a>
+        <span class="span">Service</span>
+      </li>
+      <li class="item">
+        <a class="set-icon iconfont icon-xiazai3" href=""></a>
+        <span class="span">Cart</span>
+      </li>
+      <!-- QR -->
+      <li class="qr-item">
+        <div>
+          <img src="./qr.png" alt="a qr code" />
+          <p>Scan to win.</p>
+        </div>
+      </li>
+    </ul>
+    <a href="#" class="back-button">Back to Top</a>
+    <!-- <li class="item"><a class="iconfont icon-huidaodingbu" href="">6</a></li> -->
+  </body>
+</html>
