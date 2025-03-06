@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>05-Selector: Specificity</title>
+    <style>
+      * {
+        color: green;
+      }
+      div {
+        color: salmon;
+      }
+      .box1 {
+        color: pink;
+        background-color: red;
+      }
+      #box {
+        color: red;
+        background-color: lightblue;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- inline style specificity > id selector. -->
+    <!-- id selector specificy > class selector. -->
+    <div id="box" class="box1" style="color: royalblue">a box.</div>
+  </body>
+</html>

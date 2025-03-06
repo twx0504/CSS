@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>06-Selector Test</title>
+    <link rel="stylesheet" href="./basic.css" />
+    <style>
+      p {
+        color: blue;
+      }
+      .col1 {
+        color: red;
+      }
+      .col2 {
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- orange -> blue -> green -> red -->
+    <!-- The style written at the back will cover the previous one if they have same specificity. -->
+    <!-- the classname on html element doesn't matter. -->
+    <div id="box" class="col1">1</div>
+    <p>2</p>
+    <p class="col2 col1">3</p>
+    <p style="color: red" id="box">4</p>
+
+    <!--  -->
+  </body>
+</html>

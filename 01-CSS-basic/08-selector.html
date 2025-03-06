@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>03-Selector: Class Selector</title>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: lightblue;
+        position: relative;
+      }
+
+      .item {
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: khaki;
+      }
+
+      /* Define common styles with class. */
+      /* Reduce duplicated styles! */
+      .clr-red {
+        color: red;
+      }
+      .clr-yellow {
+        color: yellow;
+      }
+      .clr-green {
+        color: green;
+      }
+
+      .font-12 {
+        font-size: 12px;
+      }
+
+      .font-18 {
+        font-size: 18px;
+      }
+
+      .font-24 {
+        font-size: 24px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div class="item"></div>
+    </div>
+
+    <p class="clr-red font-12">I am p.</p>
+    <div class="clr-green font-18">I am div.</div>
+    <span class="clr-red font-24">I am span.</span>
+  </body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>01-Selector: Element Selector</title>
+    <style>
+      /* Reset */
+      ul {
+        /* Remove marker in all li. */
+        list-style: none;
+      }
+
+      a {
+        text-decoration: none; /* Remove its underline */
+        color: #000; /* Change its color to black. */
+      }
+
+      /* Elements */
+      h2 {
+        color: red;
+      }
+
+      p {
+        background-color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Text is red.</h2>
+    <p>Background is blue.</p>
+    <p>Background is blue.</p>
+    <p>Background is blue.</p>
+    <p>Background is blue.</p>
+    <!-- when we have more similar element. -->
+
+    <h2>I am another h2. I am red too</h2>
+    <h2>I am the third h2. I am red as well.</h2>
+    <div>
+      <div>
+        <div>
+          <h2>I am in a nested div. I am red!</h2>
+          <p>I am blue too.</p>
+        </div>
+      </div>
+    </div>
+    <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+    </ul>
+
+    <a href="#">This is a tag.</a>
+  </body>
+</html>

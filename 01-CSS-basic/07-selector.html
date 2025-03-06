@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>02-Selector: ID Selector</title>
+    <style>
+      #box1 {
+        background-color: red;
+      }
+
+      #box2 {
+        background-color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Note: ID must be unique. -->
+    <div id="box1">A unique red box. Note: Js will only select the first ID when using getElementById.</div>
+    <div id="box2">A unique blue box.</div>
+    <!-- But if we set another div as the similar id, we can still style them. -->
+    <!-- But this is highly discouraged! -->
+    <div id="box1">Highly Discouraged to have both element with the similar ID. This is for demo.</div>
+    <script>
+      /* Example: If we use js, getElementById only choose the first element with that id. */
+      const box1 = document.getElementById("box1");
+      box1.style.backgroundColor = "green";
+    </script>
+  </body>
+</html>

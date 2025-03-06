@@ -1,0 +1,25 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: red;
+}
+
+ul {
+  list-style: none;
+}
+
+ul li {
+  color: #bbb;
+}
+
+.item1 span {
+  color: red;
+}
+
+.item2 span {
+  color: yellow;
+}
