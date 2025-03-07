@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>05-Border Radius: percentage</title>
+    <style>
+      body {
+        margin: 0;
+      }
+      .box {
+        margin: 20px;
+        width: 300px;
+        position: relative;
+      }
+
+      .shape {
+        width: 200px;
+        height: 100px;
+        padding: 10px;
+        border: 5px rgba(209, 185, 27, 0.5) solid;
+        /* 
+            % relative to visible width of the current element.
+            visible size = size + padding + border.
+            horizontal radius = (width + padding + border) * percentage
+            vertical radius = (height + padding + border) * percentage
+                
+            horizontal radius = 46px
+            vertical radius = 26px
+
+        */
+        border-radius: 20%;
+        background-color: khaki;
+      }
+
+      .item {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 115px;
+        height: 65px;
+        background-color: rgba(65, 105, 225, 0.6);
+        border-radius: 46px / 26px;
+        /* border: 2px solid royalblue; */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div class="shape">
+        <div class="item"></div>
+      </div>
+    </div>
+  </body>
+</html>

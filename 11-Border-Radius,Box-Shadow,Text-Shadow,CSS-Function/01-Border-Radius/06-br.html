@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>06-Border Radius: Draw Circle</title>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        border: 1px solid royalblue;
+      }
+
+      .circle {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background-color: khaki;
+      }
+      .box2 {
+        position: relative;
+        width: 100px;
+        height: 100px;
+        background-color: khaki;
+        border-radius: 30px;
+        padding: 10px;
+      }
+
+      .box2 span {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        display: block;
+        width: 80px;
+        height: 80px;
+        border-radius:  calc(30px - 10px); /* Outer border radius - border (which is 10px padding treating like a border) */
+        background-color: royalblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div class="circle"></div>
+    </div>
+    <div class="box2"><span></span></div>
+  </body>
+</html>
