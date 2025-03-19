@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>01-Opacity</title>
+    <style>
+      body {
+        margin: 0;
+      }
+      .box {
+        width: 200px;
+        height: 200px;
+        background-color: red;
+        margin: 10px;
+      }
+
+      .op1 {
+        opacity: 1;
+      }
+
+      .op0 {
+        opacity: 0;
+      }
+
+      .op-half {
+        opacity: 0.5;
+      }
+
+      .item {
+        width: 50px;
+        height: 50px;
+        background-color: skyblue;
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- the entire div becomes transparent, including its content and children. -->
+    <div class="box op0">
+      box
+      <!-- A absolute-positioned element, but it is transparent too. -->
+      <div class="item"></div>
+    </div>
+    <div class="box op1">box</div>
+    <div class="box op-half">box</div>
+  </body>
+</html>

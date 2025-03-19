@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>02-Opacity</title>
+    <style>
+      body {
+        margin: 0;
+      }
+      .box {
+        width: 100px;
+        height: 100px;
+        margin: 10px;
+      }
+      .box1 {
+        background-color: skyblue;
+        /* opacity < 1 => create a new stacking context. */
+        opacity: 0.5;
+      }
+      .box2 {
+        background-color: rgb(65, 105, 225);
+        margin-top: -50px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Box1 appears above Box2 -->
+     <!-- Due to its higher z-order using opacity -->
+    <div class="box box1">box1</div>
+    <div class="box box2">box2</div>
+  </body>
+</html>

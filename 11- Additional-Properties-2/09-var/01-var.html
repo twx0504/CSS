@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>01-var: root pseudo class</title>
+    <style>
+      /* Higher specificity */
+      :root {
+        background-color: red;
+      }
+
+      html {
+        background-color: blue; /* Cannot override :root background-color. */
+      }
+    </style>
+  </head>
+  <body></body>
+</html>

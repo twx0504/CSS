@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>02-Object Fit: Prevent Img Distortion</title>
+    <style>
+      .profile {
+        width: 200px;
+        height: 200px;
+        background-color: red;
+        margin: 10px;
+        border: 2px solid red;
+      }
+
+      .profile img {
+        width: 200px;
+        height: 200px;
+      }
+
+      .profile .img1 {
+        object-fit: cover;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 1:1 image -->
+    <div class="profile">
+      <img src="./profile1.jpg" alt="" />
+    </div>
+    <!-- not 1:1 img distortion happens! -->
+    <div class="profile">
+      <img src="./profile2.jpg" alt="" />
+    </div>
+    <!-- use object-fit: cover to solve by resizing the img while fitting the img into the frame. -->
+     <!-- Maintain aspect ratio -->
+    <div class="profile">
+      <img class="img1" src="./profile2.jpg" alt="" />
+    </div>
+  </body>
+</html>

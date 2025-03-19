@@ -23,9 +23,11 @@ property: `position` sets how an element is positioned in a document.
 
 ## 2. Absolute (Out of Normal Flow)
 
+> Identify cotaning block: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_display/Containing_block#identifying_the_containing_block
+
 ### Seven features:
 - a. get out of the document flow.
-- b. positioned relative the closest positioned ancestor (relative, absolute, fixed, sticky...) to the element.
+- b. positioned relative to the containing block (**padding box**) of the closest positioned ancestor (relative, absolute, fixed, sticky...) to the element.
 - c. when parent element and ancestor element do not have position set, the current element will be placed relative to the body element.
 - d. Set position on inline box makes them to behave like inline-block box, supporting setting size (width and height).
 - e. `margin: 0 auto` horizontal centering is not working.
@@ -54,6 +56,28 @@ margin-left: -50px;
 top: 50%;
 /* Move half of its heito the top by 50px */
 margin-top: -50px;
+
+
+/* Alternative: auto means absorbing the remaining space left. */
+
+/* Horizontal Centering */
+left: 0;
+right: 0;
+margin: 0 auto;
+
+/* Vertical Centering */
+top: 0;
+bottom: 0;
+margin: auto 0;
+
+/* Centering both horizontally and vertically */
+top: 0;
+bottom: 0;
+left: 0;
+right: 0;
+margin: auto;
+
+
 ```
 
 #### 2. Overlay Effect

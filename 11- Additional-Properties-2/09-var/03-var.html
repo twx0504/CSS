@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>03-var()</title>
+    <style>
+      :root {
+        --font-red: red;
+        --font-size: 40px;
+      }
+
+      .box {
+        --font-color: blue;
+        --bg-color: khaki;
+      }
+
+      .item {
+        --bg-color: #000;
+        color: var(--font-color); /* green - from inline style */
+        font-size: var(--font-size); /* 40px */
+        background-color: var(--bg-color); /* #000 */
+      }
+    </style>
+  </head>
+  <body>
+    <!-- We can set custom property in inline style like this. -->
+    <div class="box" style="--font-color: green">
+      <div class="item">
+        use custom property in var() and it will look for the nearest ancestor
+        that has a defined value for that property.
+      </div>
+    </div>
+  </body>
+</html>

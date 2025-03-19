@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Solution: Folder Structure</title>
+    <style>
+      :root {
+        /* margin-left of all li */
+        --dir-item-margin-left: 30px;
+        /* padding-top of all li */
+        --dir-item-padding-top: 15px;
+        /* line-height of all li */
+        --dir-item-line-height: 20px;
+      }
+
+      /* Reset */
+      body,
+      ul,
+      li {
+        margin: 0;
+        padding: 0;
+      }
+
+      ul {
+        list-style: none;
+        margin-left: var(--dir-item-margin-left);
+      }
+
+      .dir {
+        margin: 100px;
+      }
+
+      /* UI */
+      ul li {
+        position: relative;
+        padding-top: var(--dir-item-padding-top);
+        /* Height is dependent on its content. */
+        /* height: 20px; */
+        line-height: var(--dir-item-line-height);
+        /* border: 1px solid; */
+      }
+
+      ul li::before,
+      ul li::after {
+        content: "";
+        display: block;
+        position: absolute; /* absolute positioning -> the size (e.g., top, height) will based on the nearest positioned element containing block (padding box). */
+      }
+
+      /* Vertical Line */
+      ul li::before {
+        top: 0;
+        /* Note: when we set height: 100% we do not need bottom: 0 */
+        /* bottom: 0; */
+
+        /* Note: pseudo element do not inherit height from parent */
+        /* height: 100% makes it to have same height as parent. */
+        height: 100%;
+        margin-left: calc(var(--dir-item-margin-left) * -1);
+
+        width: 1px;
+        /* Height is not taking effect here. */
+        background-color: red;
+      }
+
+      /* Horizontal Line */
+      ul li::after {
+        /* top: calc(15px + 20px / 2); */
+        /* Start horizontal line at the middle. */
+        top: calc(
+          var(--dir-item-padding-top) + var(--dir-item-line-height) / 2
+        );
+        width: var(--dir-item-margin-left);
+        height: 1px;
+        margin-left: calc(var(--dir-item-margin-left) * -1);
+        background-color: red;
+      }
+
+      /* The last li has the height of padding top + half its line height. */
+      ul li:last-child::before {
+        height: calc(var(--dir-item-padding-top) + var(--dir-item-line-height) / 2);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="dir">
+      <!-- Level 1 -->
+      <ul>
+        <li>
+          Frontend
+          <!-- Level 2 -->
+          <ul>
+            <li>HTML</li>
+            <li>
+              CSS
+              <!-- Level 3 -->
+              <ul>
+                <li>Text</li>
+                <li>Box Model</li>
+                <li>Position</li>
+                <li>Background</li>
+              </ul>
+            </li>
+            <li>JS</li>
+            <li>Vue</li>
+            <li>React</li>
+          </ul>
+        </li>
+        <li>Backend</li>
+        <li>DevOps</li>
+      </ul>
+    </div>
+  </body>
+</html>

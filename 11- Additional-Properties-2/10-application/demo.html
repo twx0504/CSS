@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Demo</title>
+    <style>
+      ul {
+        list-style: none;
+      }
+      ul li {
+        position: relative; /* Direct parent is positioned relative. */
+        width: 200px;
+        height: 100px;
+        line-height: 100px;
+        padding-top: 100px;
+        background-color: skyblue;
+      }
+
+      /* 
+      
+      If the position property is absolute, 
+      the containing block is formed by the edge of the padding box of the nearest ancestor element 
+      that has a position value other than static (fixed, absolute, relative, or sticky).
+      
+      The height, top, and bottom properties compute percentage values from the height of the containing block.
+
+      > padding box of li is the containing block for ::after
+      */
+      ul li::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        /* Alternative: */
+        /* bottom: 0; */
+        display: block;
+        width: 50px;
+        /* height property determine the size of content area when we do not specify box-sizing: border-box.  */
+        /* use height: 100% */
+        height: 100%;
+
+        background-color: red;
+      }
+
+      /* div {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        background-color: red;
+      } */
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li></li>
+    </ul>
+
+    <!-- <div></div> -->
+  </body>
+</html>

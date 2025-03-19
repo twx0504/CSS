@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>02-Filter: Blur background</title>
+    <style>
+      body {
+        margin: 0;
+      }
+      .banner {
+        width: 100%;
+        height: 200px;
+        border: 2px solid red;
+        overflow: hidden;
+        position: relative;
+        margin: 10px;
+      }
+      .content {
+        font-size: 50px;
+        color: red;
+        /* Create a stacking context */
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        left: 0;
+      }
+      .bg {
+        width: 100%;
+        height: 100%;
+        /* background-color: royalblue; */
+        background: url("./profile.jpg") no-repeat center;
+        background-size: 150%; /* Increase background-image width */
+
+        /* filter value other than none creates a new stacking context. */
+        /* It will somehow cover the content. */
+        filter: blur(60px); /* Blur the background image */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="banner">
+      <!-- content is absolutely positioned relative to banner. -->
+      <!-- Remember to raise z-index. -->
+      <!-- Reason: absolute positioned element is out of document flow.  -->
+      <!-- The filter that creates a stacking context will cover the element. -->
+      <!-- By raising z-index on absolute-positioned element, it creates a new stacking context, and it will be placed in higher stacking order. -->
+      <div class="content">This is a content.</div>
+      <!-- Note: The reason to use another div for bg is to hide the spreading effect due to filter: blur. -->
+      <!-- By setting overflow hidden on the parent. -->
+      <div class="bg"></div>
+    </div>
+  </body>
+</html>

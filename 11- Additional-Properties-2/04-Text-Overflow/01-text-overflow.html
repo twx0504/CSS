@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* Single line text overflow */
+      p {
+        width: 200px;
+        border: 1px solid red;
+        white-space: nowrap; /* Text do not wrap */
+        text-overflow: ellipsis; /* Show ellipsis (...) when text overflow. */
+        overflow: hidden; /* Anything beyond container border is hidden. */
+      }
+
+      /* Multiline text overflow */
+      div {
+        width: 200px;
+        height: 60px; /* Height of two lines */
+        line-height: 30px; /* Each line is 30px high */
+        border: 1px solid red;
+        text-overflow: ellipsis;
+        overflow: hidden;
+
+        line-clamp: 2; /* For compatibility */
+        -webkit-line-clamp: 2; /* Limit the text to 2 before truncating it. */
+        display: -webkit-box; /* Old webkit-based flexbox. */
+        -webkit-box-orient: vertical; /* set layout to be vertical. */
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima, numquam.
+    </p>
+    <div>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit dolorem,
+      recusandae, debitis voluptas harum, dolore possimus ipsa dolor nobis amet
+      nam quae sapiente quasi? Facere, nobis? Ex quos rem quo voluptatibus,
+      veritatis odit optio provident beatae! Unde ratione eveniet, quis aliquam
+      recusandae, officia labore tempore, soluta aspernatur beatae placeat eius.
+    </div>
+  </body>
+</html>

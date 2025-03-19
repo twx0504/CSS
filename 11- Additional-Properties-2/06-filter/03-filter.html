@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>03-Filter: grayscale</title>
+    <style>
+      html {
+        /* All element in html becomes gray. */
+        filter: grayscale(100%); /* Standard CSS property */
+
+        /* For browser compatibility, especially older browser version*/
+        -webkit-filter: grayscale(
+          100%
+        ); /* Webkit browser e.g., Chrome & Safari */
+        -moz-filter: grayscale(100%); /* Mozilla Firefox */
+        -ms-filter: grayscale(100%); /* IE */
+        -o-filter: grayscale(100%); /* Opera */
+      }
+      p {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <img src="./profile.jpg" alt="" />
+    <p>I am red. But now it is black.</p>
+    <div class="box">
+      <img src="./profile.jpg" alt="" />
+      <p>I am red. But now it is gray.</p>
+    </div>
+  </body>
+</html>

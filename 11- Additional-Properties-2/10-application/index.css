@@ -1,0 +1,49 @@
+:root {
+  --distance: 40px;
+  --border: 1px solid #333;
+}
+
+/* Reset */
+body,
+ul {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+/* UI */
+.dir {
+  margin: 10px;
+}
+
+/* Wrapper: Making the vertical bar. */
+.wrapper {
+  margin-bottom: 20px;
+  border-left: var(--border);
+}
+
+/* Indent content */
+.wrapper > ul {
+  position: relative;
+  left: var(--distance);
+  top: 10px;
+}
+
+ul > li {
+  position: relative;
+}
+
+/* Vertical Bar */
+
+ul > li::before {
+  content: "";
+  display: block;
+  width: var(--distance);
+  border-top: var(--border);
+  position: absolute;
+  top: 8px;
+  left: calc(var(--distance) * -1); /* Multiply by -1 to make it negative */
+}

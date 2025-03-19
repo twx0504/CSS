@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>01-Object Fit</title>
+    <style>
+      img {
+        /* Set the frame by specifying size */
+        /* the width and height is used to define a container */
+        /* to place the img content */
+        width: 250px;
+        height: 200px;
+        border: 2px solid red;
+      }
+
+      img.contain {
+        /* This sets how the content of img element (img) can fit the frame we set. */
+        object-fit: contain;
+      }
+
+      img.fill {
+        object-fit: fill;
+      }
+
+      img.cover {
+        object-fit: cover;
+      }
+      img.scale-down {
+        object-fit: scale-down;
+      }
+
+      img.none {
+        object-fit: none;
+      }
+    </style>
+  </head>
+  <body>
+    <img src="./profile.jpg" class="contain" alt="" />
+    <img src="./profile.jpg" class="cover" alt="" />
+    <img src="./profile.jpg" class="fill" alt="" />
+
+    <!-- scale-down vs none vs contain -->
+    <!-- since fish.png is very small size, you will see the difference. -->
+    <!-- contain > none -->
+    <!-- So, scale-down will opt for the smaller size to display which is none. -->
+    <img src="./fish.png" class="scale-down" alt="" />
+    <img src="./fish.png" class="contain" alt="" />
+    <img src="./fish.png" class="none" alt="" />
+  </body>
+</html>

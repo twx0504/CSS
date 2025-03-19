@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vertical File Structure</title>
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
+    <div class="dir">
+      <!-- Level 1 -->
+      <div class="wrapper">
+        <ul>
+          <li class="folder folder1">
+            Frontend
+            <!-- Level 2 -->
+            <div class="wrapper">
+              <ul>
+                <li class="subfolder subfolder1">HTML</li>
+                <li class="subfolder subfolder2">
+                  CSS
+                  <!-- Level 3 -->
+                  <div class="wrapper">
+                    <ul>
+                      <li class="file file1">Text</li>
+                      <li class="file file2">Box Model</li>
+                      <li class="file file3">Position</li>
+                      <li class="file file4">Background</li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="subfolder subfolder3">JS</li>
+                <li class="subfolder subfolder4">Vue</li>
+                <li class="subfolder subfolder5">React</li>
+              </ul>
+            </div>
+          </li>
+          <li class="folder folder2">Backend</li>
+          <li class="folder folder3">DevOps</li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
