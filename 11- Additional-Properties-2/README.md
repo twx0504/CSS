@@ -1,7 +1,5 @@
 # Border Radius, Box Shadow, Text Shadow & CSS Functions
 
-[TOC]
-
 ## 1. Border Radius
 
 - a shorthand property that is used to round the corners of the element border.

@@ -1,0 +1,37 @@
+{
+  "id": "4863107",
+  "name": "cart",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "159971",
+      "name": "cart",
+      "font_class": "cart",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "1388133",
+      "name": "person",
+      "font_class": "person",
+      "unicode": "e61c",
+      "unicode_decimal": 58908
+    },
+    {
+      "icon_id": "4827737",
+      "name": "voucher",
+      "font_class": "voucher",
+      "unicode": "e723",
+      "unicode_decimal": 59171
+    },
+    {
+      "icon_id": "17412051",
+      "name": "Chat",
+      "font_class": "Chat",
+      "unicode": "e647",
+      "unicode_decimal": 58951
+    }
+  ]
+}

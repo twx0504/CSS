@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>02-Application: Hover and show text</title>
+    <style>
+      /* Reset p margin to 0 */
+      p {
+        margin: 0;
+      }
+
+      .frame {
+        position: relative;
+        width: 400px;
+        height: 400px;
+        cursor: pointer;
+
+        /* Hide the overflow */
+        overflow: hidden;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .frame p {
+        position: absolute;
+        bottom: -30px;
+        left: 0;
+        right: 0;
+
+        /* Text */
+        color: #fff;
+        text-align: center;
+        line-height: 30px;
+        background-color: rgba(0, 0, 0, 0.5);
+
+        /* Transition */
+        transition: bottom 0.5s;
+      }
+
+      .frame:hover p {
+        bottom: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="frame">
+      <img src="./profile.jpg" alt="" />
+      <p>May God Bless You.</p>
+    </div>
+  </body>
+</html>

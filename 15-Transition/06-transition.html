@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>06-Transition</title>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: tomato;
+        transition: width 1s;
+        transition-duration: 3s; /* Due to cascading rule in CSS, the longhand property declared later will override the value you specified early in shorthand property. */
+      }
+
+      .box:hover {
+        width: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+  </body>
+</html>

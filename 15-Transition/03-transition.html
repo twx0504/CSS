@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03-Transition: all</title>
+    <style>
+        .semi-circle {
+            width: 200px;
+            height: 100px;
+            background-color: royalblue;
+            /* All animatable properties will be involved! */
+            transition: all 1s 1s;
+        }
+
+        .semi-circle:hover {
+            border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+            width: 400px;
+            height: 200px;
+            background-color: violet;
+        }
+    </style>
+</head>
+<body>
+    <div class="semi-circle"></div>
+</body>
+</html>

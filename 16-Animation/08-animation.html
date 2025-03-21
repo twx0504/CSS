@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>08-Animation: animation-play-state</title>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: royalblue;
+        position: absolute;
+        top: 0;
+        left: 0;
+        animation: move 4s 2s alternate;
+        animation-fill-mode: both;
+
+        /* Shorthand */
+        /* animation: move 4s 2s infinite alternate both; */
+      }
+
+      
+      .box:hover {
+        /* Pause the animation from running when hovered. */
+        animation-play-state: paused;
+      }
+      @keyframes move {
+        0% {
+          top: 110px;
+          left: 10px;
+        }
+        50% {
+          top: 0;
+          left: 100px;
+        }
+
+        100% {
+          top: 100px;
+          left: 100px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+  </body>
+</html>

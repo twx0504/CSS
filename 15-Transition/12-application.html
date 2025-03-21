@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>04-Application: Navigation Menu</title>
+    <link rel="stylesheet" href="./iconfont/iconfont.css" />
+    <style>
+      :root {
+        --bg-transition: background-color 0.2s ease-in;
+      }
+      html,
+      body {
+        height: 100%;
+        background-color: #eee;
+      }
+
+      /* Reset */
+      body,
+      ul,
+      li,
+      p {
+        margin: 0;
+        padding: 0;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      /* UI */
+      .sidebar {
+        position: fixed;
+        width: 5px;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background-color: #333;
+      }
+
+      .sidebar > ul {
+        position: absolute;
+        right: 5px;
+
+        /* Vertical Centering */
+        top: 50%;
+        margin-top: -104px;
+
+        min-height: 208px;
+      }
+
+      ul > li {
+        position: relative;
+        width: 50px;
+        height: 50px;
+        margin-bottom: 2px;
+        background-color: #333;
+
+        /* Text and inline box centering, the children will inherit these property from li. */
+        text-align: center;
+        line-height: 50px;
+        cursor: pointer;
+      }
+
+      ul > li > i {
+        position: absolute;
+        left: 0;
+        top: 0;
+        display: block;
+        width: 50px;
+        height: 50px;
+        color: #fff;
+        transition: var(--bg-transition);
+      }
+
+      /* Note: should at least same specificity with .iconfont  */
+      .icon-size {
+        font-size: 24px;
+      }
+
+      ul > li > span {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 50px; /* The right edge of span starts at the left edge of the li. */
+        width: 0; /* Initial width is 0 */
+        height: 50px;
+        border-radius: 5px 0 0 5px;
+        text-align: center;
+        color: #333;
+        background-color: #333;
+        transition: width 0.5s, var(--bg-transition); /* Transition */
+        overflow: hidden;
+      }
+
+      .sidebar ul li:hover span {
+        background-color: red;
+        width: 80px; /* Extending its width when hovering. */
+        color: #fff;
+      }
+
+      .sidebar ul li:hover i {
+        background-color: red;
+        border-radius: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="sidebar">
+      <ul>
+        <li>
+          <!-- if i comes before span, the text will cover the icon. -->
+          <!-- in this case, you can use z-index. -->
+          <!-- But since both are on the same stacking context, we can just shift their order, and achieve the same effect without z-index. -->
+          <span>Chat</span>
+          <i class="iconfont icon-Chat icon-size"></i>
+        </li>
+        <li>
+          <span>VIP</span>
+          <i class="iconfont icon-person icon-size"></i>
+        </li>
+        <li>
+          <span>Cart</span>
+          <i class="iconfont icon-cart icon-size"></i>
+        </li>
+        <li>
+          <span>Vouchers</span>
+          <i class="iconfont icon-voucher icon-size"></i>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

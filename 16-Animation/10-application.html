@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>01-Application</title>
+    <style>
+      body {
+        overflow: hidden;
+      }
+      .box {
+        width: 100px;
+        height: 100px;
+        margin: 10px;
+        background-color: red;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+
+        /* Usually we use transform. */
+      }
+
+      .animation-bounce {
+        animation: bounce 1s ease-out forwards;
+      }
+
+      @keyframes bounce {
+        0% {
+          left: -5px;
+        }
+
+        15% {
+          left: 5px;
+        }
+        30% {
+          left: -3px;
+        }
+
+        45% {
+          left: 3px;
+        }
+
+        60% {
+          left: 0;
+        }
+
+        75% {
+          left: 0;
+          top: 0;
+          /* Otherwise, starting from 0% the opacity animation will take effect. */
+          opacity: 1; /* You must add opacity here. */
+        }
+
+        100% {
+          top: 20000px;
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+    <script>
+      /* Get box */
+      const box = document.querySelector(".box");
+
+      /* Add click event listener */
+      box.onclick = function () {
+        // this refers to box.
+        this.classList.add("animation-bounce");
+      };
+
+      /* When the animation done, we might want to remove the box from DOM. */
+    </script>
+  </body>
+</html>

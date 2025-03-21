@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>02-Animation</title>
+    <style>
+      .box {
+        width: 200px;
+        height: 200px;
+        background-color: red;
+        /* animation: changeBox 2s; */
+        cursor: pointer;
+      }
+
+      .box:hover {
+        animation: changeBox 2s;
+      }
+
+      /*
+        0% = 0s
+        50% = 1s
+        100% = 2s
+      */
+      /* @keyframes changeBox {
+        0% {
+          width: 200px;
+          height: 200px;
+        }
+        50% {
+          width: 400px;
+          height: 400px;
+        }
+        100% {
+          width: 200px;
+          height: 200px;
+        }
+      } */
+
+
+      /* 
+      - if you do not specify 0%, it will use the element initial style.
+      - if you do not specify 100%, it will also use the element initial style
+
+      initial style value:
+      - width: 200px
+      - height: 200px
+
+      */
+      @keyframes changeBox {
+        /* 0% {
+          width: 200px;
+          height: 200px;
+        } */
+        50% {
+          width: 400px;
+          height: 400px;
+        }
+        /* 100% {
+          width: 200px;
+          height: 200px;
+        } */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+  </body>
+</html>

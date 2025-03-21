@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>13-Application: steps</title>
+    <style>
+      html {
+        height: 100%;
+      }
+      body {
+        margin: 0;
+        height: 100%;
+      }
+      .frame {
+        width: calc(1475px / 8);
+        height: 325px;
+        margin: auto;
+        border: 1px solid;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        overflow: hidden;
+      }
+      .sprite {
+        width: 1472px;
+        height: 325px;
+        background: url("./sprite.png") no-repeat;
+
+        background-position-x: 0;
+
+        /* position: absolute;
+        top: 0;
+        left: 0; */
+
+        /* start:
+            - the first frame has been shifted at 0s.
+            - at 8th steps, there's nothing there.
+        */
+        /* animation: move 1s steps(8, start) infinite; */
+
+        animation: move 1s steps(8, end) infinite;
+      }
+
+      /* @keyframes move {
+        100% {
+          left: -1472px;
+        }
+      } */
+
+      @keyframes move {
+        100% {
+          background-position-x: -1472px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="frame">
+      <div class="sprite"></div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>07-Transition</title>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: royalblue;
+        transition-property: width, height, background-color;
+        transition-duration: 1s, 1s, 2s;
+        transition-delay: 0s, 1s; /* Since background-color do not have a transition-delay, it will use the first value here. which is 0s. */
+      }
+
+      .box:hover {
+        width: 200px;
+        height: 400px;
+        background-color: violet;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+  </body>
+</html>

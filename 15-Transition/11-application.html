@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>03-Application: projectile</title>
+    <style>
+      :root {
+        --container-width: 500px;
+        --container-height: 500px;
+        --ball-diameter: 50px;
+        --initial-x: 0;
+        --initial-y: 150px;
+        --ceil-y: 0;
+        --final-x: calc(var(--container-width) - var(--ball-diameter));
+        --final-y: calc(var(--container-height) - var(--ball-diameter));
+      }
+
+      .box {
+        width: var(--container-width);
+        height: var(--container-height);
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        margin-top: -250px;
+        margin-left: -250px;
+        border: 1px solid;
+        overflow: hidden;
+      }
+      .ball {
+        width: var(--ball-diameter);
+        height: var(--ball-diameter);
+        border-radius: 50%;
+        background-color: royalblue;
+        position: absolute;
+        top: var(--initial-y);
+        right: var(--initial-x);
+      }
+
+      .parabola {
+        transition: top 0.5s cubic-bezier(0.35, -1.4, 0.98, 0.68),
+          right 0.5s linear;
+      }
+
+      .move {
+        top: var(--final-y);
+        right: var(--final-x);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div class="ball"></div>
+    </div>
+    <script>
+      const ball = document.getElementsByClassName("ball")[0];
+      ball.addEventListener("click", () => {
+        ball.classList.add("parabola");
+        ball.classList.add("move");
+
+        setTimeout(() => {
+          ball.classList.remove("parabola");
+          ball.classList.remove("move");
+        }, 800);
+      });
+    </script>
+  </body>
+</html>

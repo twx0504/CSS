@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03-Animation</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+        .box:hover {
+            animation: changeBox 2s;
+        }
+
+        /* 
+            - 50% 
+                - the height remains 100px.
+                - the width changes to 200px.
+            
+            - 100%
+                - the height changes to 200px.
+                - because the width is not specified, it uses the initial width value.
+        */
+        @keyframes changeBox {
+            0% {
+                width: 100px;
+                height: 100px;
+            }
+            50% {
+                width: 200px;
+                height: 100px;
+            }
+            100% {height: 200px;}
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

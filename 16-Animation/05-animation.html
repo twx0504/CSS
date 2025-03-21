@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>05-Animation: Iteration Count</title>
+    <style>
+      body {
+        margin: 0;
+      }
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: tomato;
+        position: absolute;
+        left: 10px;
+        top: 10px;
+        /* animation: move 2s infinite; */
+        animation-name: move;
+        animation-duration: 2s;
+
+        /* How many animation cycle is played? */
+        /* animation-iteration-count: 2; */
+        animation-iteration-count: infinite;
+      }
+
+      @keyframes move {
+        /* 1s */
+        50% {
+          left: 110px;
+          top: 10px;
+        }
+        100% {
+          left: 110px;
+          top: 110px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+  </body>
+</html>

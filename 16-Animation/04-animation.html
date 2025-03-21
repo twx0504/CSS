@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>04-Animation</title>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: royalblue;
+        animation: move 4s infinite, color 2s infinite;
+        position: relative;
+        top: 0;
+        left: 0;
+      }
+
+      /* 
+        You must write the styles on each keyframe, 
+        otherwise, it will revert to default, causing unexpected result. */
+      @keyframes move {
+        /* 0% is the same as default, you can skip. */
+
+        0% {
+          left: 0;
+          top: 0;
+        }
+
+        /* 1s */
+        25% {
+          left: 50px;
+          top: 0;
+        }
+        /* 2s */
+        50% {
+          left: 50px;
+          top: 50px;
+        }
+        /* 3s */
+        75% {
+          top: 50px;
+          left: 0;
+        }
+        /* 4s */
+        100% {
+          top: 0;
+          left: 0;
+        }
+      }
+
+      @keyframes color {
+        0% {
+          background-color: royalblue;
+        }
+        25% {
+          background-color: palevioletred;
+        }
+        50% {
+          background-color: pink;
+        }
+        75% {
+          background-color: violet;
+        }
+        100% {
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+  </body>
+</html>

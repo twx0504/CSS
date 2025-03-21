@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>07-Animation: animation-fill-mode</title>
+    <style>
+      .box {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        width: 100px;
+        height: 100px;
+        background-color: tomato;
+        animation: move 5s 2s;
+        
+        /* Default: do not apply styles to element before and after animation. */
+        /* animation-fill-mode: none; */
+        
+        /* When animation ends, applying the last keyframe style to the element. */
+        /* animation-fill-mode: forwards; */
+
+        /* When animation starts, applying the first keyframe style to the element. */
+        /* animation-fill-mode: backwards; */
+
+        /* Combine both forwards and backwards */
+        /* animation-fill-mode: both; */
+      }
+
+      @keyframes move {
+        /* Initial keyframe's styles of the animation is different! */
+        0% {
+          top: 100px;
+          left: 10px;
+        }
+        50% {
+          top: 10px;
+          left: 200px;
+        }
+
+        100% {
+          top: 200px;
+          left: 200px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+  </body>
+</html>

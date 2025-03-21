@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>12-Animation: Step</title>
+    <style>
+      body {
+        margin: 0;
+      }
+      .box {
+        width: 100px;
+        height: 100px;
+        background: rgba(138, 210, 238, 0.6);
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        /* 
+            - duration: 10s
+            - steps: 5
+            - 10s / 5 = 2s
+        */
+        animation: move 10s steps(5, start);
+      }
+      /* 
+        step 5 for each interval:
+        - 0 - 50% interval = first 5 second
+        - 50 - 100% interval = later 5 second
+      
+      */
+      @keyframes move {
+        0% {
+          left: 0;
+        }
+        50% {
+          left: 100px;
+        }
+        100% {
+          left: 500px;
+        }
+      }
+
+      .line1 {
+        width: 500px;
+        background-color: red;
+        height: 20px;
+      }
+
+      .line2 {
+        width: 100px;
+        background-color: khaki;
+        height: 20px;
+      }
+
+      
+    </style>
+  </head>
+  <body>
+    <div class="box"></div></div>
+    <div class="line1"></div>
+    <!-- Measure first 5 second -->
+    <div class="line2"></div>
+  </body>
+</html>

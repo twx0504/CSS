@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>10: Animation: step()</title>
+    <style>
+      body {
+        margin: 0;
+      }
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: rgba(65, 105, 225, 0.5);
+        position: absolute;
+        left: 0;
+        top: 0;
+
+        /* 
+            12s / 4 steps = 3s per step
+            start: first step at 0s.
+            end: first step at 3s.
+        */
+
+        /* 1. `start`
+            - Steps occur at 0s, 3s, 6s, and 9s (beginning of each interval).
+            - The last step happens at 9s, so the final state (500px) is reached before 12s.
+        */
+        /* animation: move 12s steps(4, start); */
+
+        /* 2. `end`
+            - Steps occur at 3s, 6s, 9s, and 12s (end of each interval).
+            - The last step happens **at 12s**, but without `animation-fill-mode: forwards;`, 
+            the change is immediately reset to the initial state.
+        */
+        animation: move 12s steps(4, end);
+        /* animation-fill-mode: forwards; */
+
+        /* Omit the second parameter, it will assume 'end' */
+        /* animation: move 12s steps(4); */
+
+        /* 3.  */
+        /* step + 1 */
+        /* animation: move 12s steps(4, jump-both); */
+
+        /* 4.  */
+        /* step  - 1 */
+        /* animation: move 12s steps(4, jump-none); */
+      }
+
+      .line {
+        width: 500px;
+        height: 10px;
+        background-color: red;
+      }
+
+      @keyframes move {
+        0% {
+          left: 0;
+        }
+        100% {
+          left: 500px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+    <div class="line"></div>
+  </body>
+</html>
