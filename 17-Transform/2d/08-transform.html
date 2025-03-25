@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>08-Transform: Skew</title>
+    <style>
+      .box {
+        width: 200px;
+        height: 200px;
+        border: 2px solid royalblue;
+        margin: 100px;
+      }
+
+      .item {
+        width: 200px;
+        height: 200px;
+        background-color: khaki;
+
+        /* Pull in horizontal direction */
+        /* transform: skewX(40deg); */
+        /* In opposite direction */
+        /* transform: skewX(-40deg); */
+
+        /* Pull in vertical direction */
+        /* transform: skewY(30deg); */
+        /* In opposite direction */
+        /* transform: skewY(-30deg); */
+
+        transform: skew(40deg, 40deg);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div class="item"></div>
+    </div>
+  </body>
+</html>

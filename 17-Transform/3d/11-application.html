@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>04-Application: 3D Cuboid</title>
+    <style>
+      :root {
+        --container-size: 800px;
+        --rect-length: 400px;
+        --rect-height: 300px;
+        --rect-width: 200px;
+      }
+      .container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: var(--container-size);
+        height: var(--container-size);
+        border: 1px solid;
+        transform: translate(-50%, -50%);
+        perspective: 900px;
+        /* Centering Cuboid */
+        display: grid;
+        place-content: center;
+      }
+
+      /* Transition */
+      .container:hover .cuboid {
+        transition: transform 10s linear;
+        transform: rotateY(360deg);
+        /* transform: rotateX(360deg); */
+      }
+
+      /* Create a 3D Space. */
+      .cuboid {
+        position: relative;
+        /* 
+        Note: 
+        - The width and height here is not important.
+        - It is just a 3D space that contains all the faces of the cuboid. */
+        width: var(--rect-length);
+        height: var(--rect-height);
+        border: 2px solid royalblue;
+        /* Make its children displaying in a 3D space. */
+        transform-style: preserve-3d;
+        /* Default */
+        /* transform-origin: 50% 50% 0px */
+        transform-origin: 50% 50% calc(var(--rect-height) / -2);
+        /* Rotate */
+        /* transform: rotateX(-45deg) rotateY(40deg); */
+        animation: rotate 10s linear infinite;
+      }
+
+      @keyframes rotate {
+        0% {
+          transform: rotateX(0) rotateY(0);
+        }
+        100% {
+          transform: rotate(-360deg) rotateY(-360deg);
+        }
+      }
+      /* Faces of a Cuboid */
+      .face {
+        position: absolute;
+        top: 0;
+        left: 0;
+        text-align: center;
+      }
+      .cuboid .front,
+      .cuboid .back {
+        width: var(--rect-length);
+        height: var(--rect-height);
+        line-height: var(--rect-height);
+      }
+      /* Front */
+      .cuboid .front {
+        background-color: rgba(255, 99, 71, 0.5);
+      }
+      /* Back */
+      .cuboid .back {
+        background-color: rgba(216, 112, 147, 0.5);
+        transform: translateZ(calc(var(--rect-width) * -1));
+      }
+      .cuboid .top,
+      .cuboid .bottom {
+        width: var(--rect-length);
+        height: var(--rect-width);
+        line-height: var(--rect-width);
+      }
+      /* Top */
+      .cuboid .top {
+        background-color: rgba(238, 130, 238, 0.5);
+        transform-origin: bottom;
+        transform: translateY(-100%) rotateX(90deg);
+      }
+      /* Bottom */
+      .cuboid .bottom {
+        background-color: rgba(65, 105, 225, 0.5);
+        transform-origin: top;
+        transform: translateY(var(--rect-height)) rotateX(-90deg);
+      }
+      .cuboid .left,
+      .cuboid .right {
+        width: var(--rect-width);
+        height: var(--rect-height);
+        line-height: var(--rect-height);
+      }
+      /* Left */
+      .cuboid .left {
+        background-color: rgba(221, 160, 221, 0.5);
+        transform-origin: right;
+        transform: translateX(-100%) rotateY(-90deg);
+      }
+      /* Right */
+      .cuboid .right {
+        background-color: rgba(102, 51, 153, 0.5);
+        transform-origin: left;
+        transform: translateX(var(--rect-length)) rotateY(90deg);
+      }
+
+      /* Tip: You can rotate in any direction but you want to make sure the front face always facing outwards! */
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="cuboid">
+        <div class="face front">Front</div>
+        <div class="face back">Back</div>
+        <div class="face top">Top</div>
+        <div class="face bottom">Bottom</div>
+        <div class="face left">Left</div>
+        <div class="face right">Right</div>
+      </div>
+    </div>
+  </body>
+</html>

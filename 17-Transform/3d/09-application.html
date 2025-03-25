@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>02-Application: 3D Nav Bar</title>
+    <style>
+      body,
+      ul,
+      li {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        height: 3000px;
+      }
+      ul {
+        width: 400px;
+        height: 50px;
+        margin: 0 auto;
+        background-color: royalblue;
+        list-style: none;
+        
+      }
+
+      a {
+        text-decoration: none;
+      }
+      ul li {
+        /* Create a 3D space */
+        perspective: 300px;
+        width: 100px;
+        text-align: center;
+        float: left;
+        /* border: 1px solid; */
+      }
+
+      /* The box that we want to rotate. */
+      ul li .box {
+        height: 50px;
+        /* 3D Space */
+        transform-style: preserve-3d;
+        /* The z-coordinate = 0.5 * height */
+        transform-origin: 50% 50% -25px;
+        transition: transform 0.4s;
+      }
+
+      ul li .box a {
+        display: block;
+        padding: 0 20px;
+        line-height: 50px;
+        color: #fff;
+      }
+
+      ul li .box a.front {
+        background-color: royalblue;
+      }
+      ul li .box a.bottom {
+        background-color: violet;
+        transform-origin: center top;
+        transform: rotateX(-90deg);
+      }
+      ul li:hover .box {
+        transform: rotateX(90deg);
+      }
+      
+    </style>
+  </head>
+  <body>
+    <ul>
+      <!-- perspective -->
+      <li>
+        <!-- a box containing 3D space for rotation. -->
+        <div class="box">
+          <!-- 3D -->
+          <a href="" class="front">Home</a>
+          <a href="" class="bottom">Home</a>
+        </div>
+      </li>
+      <li>
+        <div class="box">
+          <!-- 3D -->
+          <a href="" class="front">Frontend</a>
+          <a href="" class="bottom">Frontend</a>
+        </div>
+      </li>
+      <li>
+        <div class="box">
+          <!-- 3D -->
+          <a href="" class="front">Backend</a>
+          <a href="" class="bottom">Backend</a>
+        </div>
+      </li>
+      <li>
+        <div class="box">
+          <!-- 3D -->
+          <a href="" class="front">About</a>
+          <a href="" class="bottom">About</a>
+        </div>
+      </li>
+      <li><div class="box"></div></li>
+    </ul>
+  </body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>01-Application: Rocket</title>
+    <style>
+      .rocket {
+        width: 300px;
+        position: absolute;
+        /* Centering rocket */
+        left: 50%;
+        top: 50%;
+        /* margin-top: -150px;
+        margin-left: -150px; */
+      }
+
+      .line {
+        width: 1px;
+        height: 160px;
+        background-color: blue;
+        position: absolute;
+      }
+
+      /* Position the lines */
+      .line1 {
+        top: 200px;
+        left: 400px;
+      }
+      .line2 {
+        top: 240px;
+        left: 450px;
+      }
+      .line3 {
+        top: 290px;
+        left: 500px;
+      }
+      .line4 {
+        top: 320px;
+        left: 550px;
+      }
+
+      /* Animation */
+      .animation-move-rocket {
+        animation: moveRocket 1s linear 0s infinite alternate;
+      }
+
+      @keyframes moveRocket {
+        0% {
+          /* transform: translate(-30px, -30px); */
+          transform: translate(calc(-50% - 30px), calc(-50% - 30px));
+        }
+        100% {
+          /* transform: translate(30px, 30px); */
+          transform: translate(calc(-50% + 30px), calc(-50% + 30px));
+        }
+      }
+
+      .animation-move-lines {
+        animation: moveLines 1s linear var(--delay) infinite both;
+      }
+
+      @keyframes moveLines {
+        0% {
+          opacity: 0;
+          transform: rotate(55deg) translateY(-200px); /* The translation Y moves the line diagonally due to the rotation. */
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+          transform: rotate(55deg) translateY(200px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="line line1 animation-move-lines" style="--delay: 0.4s"></div>
+    <div class="line line2 animation-move-lines" style="--delay: 0.6s"></div>
+    <div class="line line3 animation-move-lines" style="--delay: 0.2s"></div>
+    <div class="line line4 animation-move-lines" style="--delay: 0.8s"></div>
+    <!-- Make sure rocket appears above lines. -->
+    <img
+      class="rocket animation-move-rocket"
+      src="./rocket.png"
+      alt="A moving rocket."
+    />
+  </body>
+</html>

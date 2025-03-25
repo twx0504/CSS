@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>02-Application</title>
+    <style>
+      /* Note: transform will create a new stacking context. */
+      /* Adjust the z-index accordingly. */
+      /* 36min video */
+
+      .frame {
+        position: relative;
+        width: 300px;
+        height: 300px;
+        margin: 100px auto;
+        border: 1px solid red;
+        overflow: hidden;
+        cursor: pointer;
+      }
+
+      /* Use ::before, as it comes before play button, so it will not cover the play button */
+      .frame::before {
+        content: "";
+        display: block;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        z-index: 2;
+        background-color: rgba(0, 0, 0, 0);
+        transition: background-color 0.5s;
+      }
+
+      .frame img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+        transition: transform 0.5s ease-in-out;
+      }
+
+      .frame .play {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 3;
+        transform: translate(-50%, -50%);
+        width: 60px;
+        height: 60px;
+        /* border: 1px solid red; */
+        background: url("./play.png") no-repeat;
+        /* background-size: 60px 60px; */
+
+        /* In this case, we do not use cover -> because we dont want the logo to have some part removed if not fit. We want it to resize proportionally to fill the box.  */
+        background-size: contain;
+        opacity: 0;
+        transition: opacity 1s, transform 0.5s ease-in-out;
+      }
+      .frame:hover::before {
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+      .frame:hover img {
+        transform: scale(1.2);
+      }
+
+      .frame:hover .play {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.2);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="frame">
+      <!-- ::before comes second -->
+      <!-- ::before -->
+
+      <!-- img is at the bottom -->
+      <img src="./artist.webp" alt="" />
+      <!-- Higher z-index -->
+      <div class="play"></div>
+    </div>
+  </body>
+</html>

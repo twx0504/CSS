@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>07-3D Transform</title>
+    <style>
+      body,
+      ul,
+      li {
+        margin: 0;
+        padding: 0;
+      }
+      li {
+        list-style: none;
+      }
+      ul {
+        width: 1200px;
+        margin: 100px;
+        /* it has different effect on each children. */
+        perspective: 300px;
+      }
+      ul li {
+        width: 200px;
+        height: 250px;
+        float: left;
+        transform: rotateY(10deg);
+      }
+      ul li:nth-child(odd) {
+        background-color: skyblue;
+      }
+      ul li:nth-child(even) {
+        background-color: khaki;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <ul>
+        <!-- children becomes smaller and smaller from left to right. -->
+        <!-- Also, the gap between two li are getting bigger. -->
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+  </body>
+</html>

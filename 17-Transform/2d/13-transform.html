@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>13-Transform-Origin - scale & skew</title>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        border: 1px solid red;
+        margin: 100px;
+      }
+
+      .item {
+        width: 100px;
+        height: 100px;
+        background-color: rgba(240, 230, 140, 0.8);
+        transform: scale(2); 
+
+        /* Default: */
+        /* transform-origin: 50% 50% */
+        /* transform-origin: left top; */
+        /* transform-origin: right top; */
+        /* transform-origin: left bottom; */
+        /* transform-origin: right bottom; */
+        /* transform-origin: top; */
+        /* transform-origin: bottom; */
+        /* transform-origin: left; */
+        transform-origin: right;
+
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div class="item"></div>
+    </div>
+  </body>
+</html>

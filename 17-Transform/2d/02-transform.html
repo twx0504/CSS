@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>02-Transform</title>
+    <style>
+      body {
+        margin: 0;
+      }
+      .box {
+        width: 200px;
+        height: 200px;
+        padding: 25px;
+        border: 25px solid;
+        /* margin: 10px; */
+      }
+
+      .box1 {
+        /* 
+            - 50% * (200 + 50 + 50) = 150px to the left
+            - 25% * (200 + 50 + 50) = 75px to the bottom
+        */
+        transform: translate(50%, 25%);
+      }
+
+      .clr-tomato {
+        background-color: rgb(255, 99, 71);
+      }
+
+      .clr-royal-blue {
+        background-color: rgba(65, 105, 225, 0.8);
+      }
+
+      .clr-violet {
+        background-color: rgb(238, 130, 238);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box box1 clr-royal-blue"></div>
+    <div class="box box2 clr-tomato"></div>
+  </body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>02-3D Transform</title>
+    <style>
+      .box {
+        width: 200px;
+        height: 200px;
+        margin: 100px;
+        border: 2px solid red;
+      }
+      /* Default: The top left corner of item is (0, 0, 0) */
+      .item {
+        width: 200px;
+        height: 200px;
+        line-height: 200px;
+        text-align: center;
+        background-color: rgba(240, 230, 140, 0.8);
+      }
+      .z100 {
+        /* The item moves in +ve z direction, which means we are looking at this item at 800px. */
+        /* So the item appears bigger. */
+        transform: translateZ(100px);
+      }
+      .z-100 {
+        /* The item moves in -ve z direction, which means we are looking at this item at 1000px. */
+        /* So the item appears smaller. */
+        transform: translateZ(-100px);
+      }
+
+      .z300 {
+        transform: translateZ(300px);
+      }
+
+      .p900 {
+        perspective: 900px; /* We stands at 900px at z-axis to view the item. */
+      }
+      .p300 {
+        perspective: 300px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Note: when we do not set translateZ on element, it will be at its original coordinate. -->
+    <!-- So regardless of what you set the perspective, it appears the same at 900px and 400px perspective. -->
+
+    <!-- Keypoint: The bigger perspective causes less transformation or vice versa. -->
+
+    <!-- Set perspective to 900px. -->
+    <div class="box p900"><div class="item">p900</div></div>
+    <div class="box p900">
+      <div class="item z100">p900 z100</div>
+    </div>
+    <div class="box p900">
+      <div class="item z-100">p900 z-100</div>
+    </div>
+
+    <!-- Set perspective to 300px. -->
+    <div class="box p300"><div class="item">p300</div></div>
+    <div class="box p300">
+      <!-- Note: When you set translateZ, you will see the element becomes bigger compared to perspective 900. -->
+      <div class="item z100">p300 z100</div>
+    </div>
+    <div class="box p300">
+      <div class="item z-100">p300 z-100</div>
+    </div>
+    <div class="box p300">
+      <!-- When perspective and translateZ has same value, it means we cannot see it. -->
+      <!-- The element has been behind us. -->
+      <div class="item z300">p300 z300</div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>03-Application: Book</title>
+    <style>
+      html {
+        overflow-y: hidden;
+      }
+      .book {
+        position: relative;
+        margin-left: 500px;
+        width: 300px;
+        height: 400px;
+        margin: 150px auto 0;
+        perspective: 1000px;
+      }
+      .book .page {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: inherit;
+        height: inherit;
+        transform-origin: left center;
+        /* Display children in 3D space. */
+        transform-style: preserve-3d;
+        transition: transform 2s;
+        text-align: center;
+        line-height: 400px;
+        cursor: pointer;
+      }
+
+      .page1 {
+        z-index: 4;
+      }
+      .page2 {
+        z-index: 3;
+      }
+      .page3 {
+        z-index: 2;
+      }
+      .page4 {
+        z-index: 1;
+      }
+
+      .page .face {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: inherit;
+        height: inherit;
+        border-radius: 8px;
+      }
+
+      .book .page .front {
+        background-color: royalblue;
+        color: #fff;
+        /* Make sure front page is on the top. */
+        /* Problem: You cannot see the back page now because they are overlapped. */
+        z-index: 1;
+      }
+      .book .page .back {
+        background-color: violet;
+        /* Solution: To make the back page visible: */
+        /* 1. Make sure the front and back page has a distance. */
+        /* 2. Make sure the content of backpage is flipped. */
+
+        /* Note: even you do this, you are not able to see the back page.  */
+        /* Solution: Set transform-style: preserve-3d on its parent.  */
+        transform: translateZ(-1px) rotateY(180deg);
+      }
+
+      .book:hover .page1 {
+        transform: rotateY(-180deg);
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="book">
+      <div class="page page1">
+        <div class="face front">
+          <img src="./ChillGuy.jpg" alt="" width="300" height="400" />
+        </div>
+        <div class="face back">
+          <img src="./animal.jpg" alt="" width="300" height="400" />
+        </div>
+      </div>
+      <div class="page page2">
+        <div class="face front">Front Page2</div>
+        <div class="face back">Back Page2</div>
+      </div>
+      <div class="page page3">
+        <div class="face front">Front Page3</div>
+        <div class="face back">Back Page3</div>
+      </div>
+      <div class="page page4">
+        <div class="face front">Front Page4</div>
+        <div class="face back">Back Page4</div>
+      </div>
+    </div>
+  </body>
+</html>

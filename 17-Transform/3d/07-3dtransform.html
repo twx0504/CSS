@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>07-3D Transform</title>
+    <style>
+      body,
+      ul,
+      li {
+        margin: 0;
+        padding: 0;
+      }
+      li {
+        list-style: none;
+      }
+      ul {
+        margin: 50px;
+        width: 1200px;
+      }
+      ul li {
+        width: 200px;
+        height: 250px;
+        float: left;
+        /* To ensure that each rotation is the same, we must put perspective on individual li. */
+        /* Then, we put a div inside li, and rotate that div. */
+        perspective: 300px; /* Creates its own stacking order. */
+        position: relative; /* To use z-index, you have to make li a positioned element. */
+
+      }
+      ul li > div {
+        width: 100%;
+        height: 100%;
+        transform: rotateY(20deg); /* Creates its own stacking context */
+      }
+      ul li:nth-child(odd) div {
+        background-color: skyblue;
+      }
+      ul li:nth-child(even) div {
+        background-color: khaki;
+      }
+      ul li:hover{
+        /* Raise the stacking order of li when hover. So it will appear above the latter element! */
+        z-index: 1;
+      }
+      ul li:hover div {
+        transform: rotate(0deg) scale(1.3);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <ul>
+        <!-- children becomes smaller and smaller from left to right. -->
+        <!-- Also, the gap between two li are getting bigger. -->
+        <li><div></div></li>
+        <li><div></div></li>
+        <li><div></div></li>
+        <li><div></div></li>
+        <li><div></div></li>
+
+        <!-- Note: if inside li got more than two div, then each div will have different effect. -->
+      </ul>
+    </div>
+  </body>
+</html>

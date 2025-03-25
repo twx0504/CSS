@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>09-Transform: rotate</title>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        margin: 100px;
+        border: 2px solid tomato;
+      }
+
+      .item {
+        width: 100px;
+        height: 100px;
+        background-color: khaki;
+      }
+
+      .r30 {
+        transform: rotate(30deg);
+      }
+      .r-30 {
+        transform: rotate(-30deg);
+      }
+
+      .r180 {
+        transform: rotate(180deg);
+      }
+
+      .r360 {
+        transform: rotate(360deg);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box"><div class="item r30">30deg</div></div>
+    <div class="box"><div class="item r-30">-30deg</div></div>
+    <!-- The content is being rotating 180deg. -->
+    <div class="box"><div class="item r180">180deg</div></div>
+    <!-- This is back to the original position. -->
+    <div class="box"><div class="item r360">360deg</div></div>
+  </body>
+</html>

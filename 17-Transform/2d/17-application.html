@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>01-Application</title>
+    <style>
+      body {
+        margin: 0;
+      }
+      .arrow {
+        width: 15px;
+        height: 15px;
+        padding: 10px;
+        margin: 50px;
+        border: 1px solid #ddd;
+      }
+
+      /* Draw Arrow */
+
+      .arrow::after {
+        content: "";
+        display: block;
+        width: 15px;
+        height: 15px;
+
+        /* background-color: red; */
+        /* border-left: 1px solid red; */
+        /* border-top: 1px solid red; */
+
+        /* Note: I am thinking of using box shadow to replace border because border causing layout shift. */
+        box-shadow: inset 1px 1px 0 0.5px red;
+        /* background-color: royalblue; */
+        transition: transform 0.5s linear;
+      }
+
+      .arrow-up::after {
+        transform: translateY(25%) rotate(45deg);
+      }
+
+      .arrow-down::after {
+        transform: translateY(-25%) rotate(-135deg);
+      }
+
+      .arrow-up:hover::after {
+        transform: translateY(-25%) rotate(-135deg);
+      }
+
+      .arrow-down:hover::after {
+        transform: translateY(25%) rotate(45deg);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="arrow arrow-up"></div>
+    <div class="arrow arrow-down"></div>
+  </body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>04-3D Transform: rotate</title>
+    <style>
+      .box {
+        width: 200px;
+        height: 200px;
+        margin: 100px;
+        border: 2px solid red;
+        perspective: 300px;
+      }
+
+      .item {
+        width: 200px;
+        height: 200px;
+        background-color: khaki;
+      }
+
+      .rotatex40 {
+        transform: rotateX(40deg);
+      }
+      .rotatex-40 {
+        transform: rotateX(-40deg);
+      }
+      .rotatey40 {
+        transform: rotateY(40deg);
+      }
+      .rotatey-40 {
+        transform: rotateY(-40deg);
+      }
+      .rotatez40 {
+        transform: rotateZ(40deg);
+      }
+      .rotatez-40 {
+        transform: rotateZ(-40deg);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Use left hand grip rule.
+    - your thumb will be the direction of axis. 
+    -->
+    <div class="box">
+      <div class="item rotatex40">rotateX(40deg)</div>
+    </div>
+    <div class="box">
+      <div class="item rotatex-40">rotateX(-40deg)</div>
+    </div>
+    <div class="box">
+      <div class="item rotatey40">rotateY(40deg)</div>
+    </div>
+    <div class="box">
+      <div class="item rotatey-40">rotateY(-40deg)</div>
+    </div>
+    <div class="box">
+      <div class="item rotatez40">rotateZ(-40deg)</div>
+    </div>
+    <div class="box">
+      <div class="item rotatez-40">rotateZ(-40deg)</div>
+    </div>
+  </body>
+</html>

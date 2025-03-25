@@ -325,3 +325,5 @@ when you want to stick an element on a particular position.
 > Compare based on their stacking context:
 > If it is within the same stacking context, compare based on the arrangement of element.
 > If it is in different stacking contexts, the entire stacking context is treated as a single unit and compared. Note, `z-index` can only control the stacking order of elements within the same stacking context.
+
+> z-index only works for positioned elements or flex and grid items.

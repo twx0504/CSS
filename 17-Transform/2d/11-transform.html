@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>11-Transform: Transform-Origin</title>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        border: 2px solid red;
+        margin: 30px;
+      }
+
+      .item {
+        width: 100px;
+        height: 100px;
+        background-color: khaki;
+      }
+      .item1 {
+        transform-origin: 50px 50px;
+        transform: rotate(45deg);
+      }
+      .item2 {
+        transform-origin: 0 50px; /* left center */
+        /* transform-origin: 0 50%;  */
+        transform: rotate(45deg);
+      }
+      .item3 {
+        transform-origin: 100px 50px; /* right center */
+        transform: rotate(45deg);
+      }
+      .item4 {
+        transform-origin: 50px 0; /* top center */
+        transform: rotate(45deg);
+      }
+      .item5 {
+        transform-origin: 50px 100px; /* bottom center */
+        transform: rotate(45deg);
+      }
+      .item6 {
+        transform-origin: 0 0; /* represents top left corner (0, 0)*/
+        transform: rotate(45deg);
+      }
+      .item7 {
+        transform-origin: 50px 50px; /* center center which is similar to 50% 50% */
+        transform: rotate(45deg);
+      }
+      .item8 {
+        /* You can specify any transform-origin as you wish. */
+        transform-origin: 30px 30px;
+        transform: rotate(45deg);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div class="item item1">Default: center center</div>
+    </div>
+    <div class="box">
+      <div class="item item2">left</div>
+    </div>
+    <div class="box">
+      <div class="item item3">right</div>
+    </div>
+    <div class="box">
+      <div class="item item4">top</div>
+    </div>
+    <div class="box">
+      <div class="item item5">bottom</div>
+    </div>
+    <div class="box">
+      <div class="item item6">top left</div>
+    </div>
+    <div class="box">
+      <div class="item item7">center</div>
+    </div>
+    <div class="box">
+      <div class="item item8">30px 30px</div>
+    </div>
+  </body>
+</html>

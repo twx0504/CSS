@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>01-3D Transform</title>
+    <style>
+      .box {
+        width: 200px;
+        height: 200px;
+        margin: 100px;
+        border: 2px solid red;
+        perspective: 900px; /* We stands at 900px at z-axis to view the item. */
+      }
+      /* Default: The top left corner of item is (0, 0, 0) */
+      .item {
+        width: 200px;
+        height: 200px;
+        line-height: 200px;
+        text-align: center;
+        background-color: rgba(240, 230, 140, 0.8);
+      }
+      .z100 {
+        /* The item moves in +ve z direction, which means we are looking at this item at 800px. */
+        /* So the item appears bigger. */
+        transform: translateZ(100px);
+      }
+      .z-100 {
+        /* The item moves in -ve z direction, which means we are looking at this item at 1000px. */
+        /* So the item appears smaller. */
+        transform: translateZ(-100px);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box"><div class="item">Initial</div></div>
+    <div class="box"><div class="item z100">Bigger - move closer to us</div></div>
+    <div class="box"><div class="item z-100">Smaller - far away from us</div></div>
+  </body>
+</html>

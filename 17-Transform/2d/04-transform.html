@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>04-Transform</title>
+    <style>
+      .box {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+
+        border: 10px solid;
+        padding: 50px;
+        width: 400px;
+        /* height: 100px; */
+        background-color: tomato;
+
+        /* Benefit: 
+        
+          - You do no need to manually calculate. Just use percentage it calculate for you.
+          - Good if you don't know the height of the container because you want the height to calculate based on content.
+        */
+        transform: translate(-50%, -50%);
+
+        /* 
+          Alternative: 
+          - But you need to manually calculate. Include padding and border in calculation.
+          - when the height of the element is not known, we can't use margin already.
+         */
+
+        /* margin-left: -110px;
+        margin-top: -110px; */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta provident
+      laboriosam recusandae consequatur ab pariatur ea fuga? Amet dolorum
+      inventore quae asperiores quia minus ex aspernatur ipsa laboriosam quas!
+      Earum nostrum explicabo fugit quidem cum architecto, ad accusantium harum
+      aperiam placeat! Iusto quisquam totam unde, autem facilis nobis!
+      Obcaecati, suscipit!
+    </div>
+  </body>
+</html>

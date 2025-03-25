@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>03-Transform</title>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: tomato;
+        /* transform: translateX(50px); */
+        /* transform: translateY(50px); */
+        transform: translateX(200px);
+        /* transform: translateX(-50px); */
+
+
+        /* Note: Writing separately like this, the latter one will override the first one. */
+        /* transform: translateX(50px);
+        transform: translateY(50px) */
+
+        /* This is working */
+        transform: translateX(50px) translateY(50px);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+  </body>
+</html>

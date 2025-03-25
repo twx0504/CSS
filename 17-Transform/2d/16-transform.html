@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>16-Transform</title>
+    <style>
+      .box {
+        width: 200px;
+        height: 200px;
+        margin: 50px;
+        background-color: skyblue;
+        position: relative;
+      }
+
+      .item {
+        width: 100px;
+        height: 100px;
+        background-color: tomato;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      /* Note: the hover transform will override the one before hovering. */
+      .item:hover {
+        /* Tips: think right to left from the order you write the transform function */
+        /* To see where the final result ends up to be. */
+        /* scale down first, then translate (which then center.) */
+        transform: translate(-50%, -50%) scale(0.5);
+
+        /* This translate first, then scale down, so it is not centering anymore. */
+        /* transform: scale(0.5) translate(-50%, -50%); */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box"><div class="item"></div></div>
+  </body>
+</html>
